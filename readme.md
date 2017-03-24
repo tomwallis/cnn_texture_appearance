@@ -1,5 +1,7 @@
 # Code and data for "A parametric texture model based on deep convolutional features closely matches texture appearance for humans" by Wallis et al.
 
+[![DOI](https://zenodo.org/badge/86071293.svg)](https://zenodo.org/badge/latestdoi/86071293)
+
 This repository contains the code necessary to reproduce the results of 
 
 Wallis, Funke, Ecker, Gatys, Wichmann and Bethge (submitted). A parametric texture model based on deep convolutional features closely matches texture appearance for humans. 
