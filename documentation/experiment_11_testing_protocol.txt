@@ -1,0 +1,27 @@
+# Testing protocol for Experiment 11 (spatial 3-alternative)
+
+* consent forms and orientation to the subject area (adjust seat and chinrest height until comfortable).
+
+### Instructions and practice
+  
+  * 3 images are shown at different positions, two belong to the same "texture", one belongs to a different one. [Show the printed examples]. Find the odd one. Odd one can be the 'natural' or the 'synthesised' one.
+
+  * Odd can be at any position. respond to position of the odd image, guess if unsure. task intended to be hard sometimes.
+  * you have up to 1.2 seconds to respond
+
+  * practice task [run experiment script with `subj = practice, time=2000` now].
+    - you will receive feedback during the practice task. try to use this to improve your performance.
+    - you are allowed to fixate the images. Try to return to the fixation spot when the images disapear (so you start at the fixation spot for each trial).
+
+  * this task is intended to be hard. Try to do the best you can, but if you are not sure just guess. There will be levels where the task is impossible. Just do your best.
+  * Try not to overthink your responses. Once you are used to the task, try to "tune out".
+  * You may notice that some image patches are repeated. The target will not necessarily be on the same position, so trying to remember what you said last time won't help you.
+
+  * If someone is not getting the task run `practice` again.
+
+
+### Full task for the two presentation times
+  * according the counterbalancing sheet start with a presentation time of 200 or 2000 ms
+  * do the corresponding practice task and then run the full task (5 blocks)
+
+	

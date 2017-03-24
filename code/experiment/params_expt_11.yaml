@@ -1,0 +1,42 @@
+## Parameters for experiment.
+
+experiment_num: 11  # designation for this experiment.
+
+#------------------------------------------------------------------------------
+# spatial properties
+#------------------------------------------------------------------------------
+
+ppd: 41  # number of pixels per degree of visual angle.
+dist_monitor: 60 # monitor distance in cm
+bg_color: 0.5
+image_size_px: 128
+eccent_deg: 3  # degrees of visual angle from fixation to patches.
+hann_alpha: 0.1  # relative size of the hann windowing.
+
+#------------------------------------------------------------------------------
+# temporal properties
+#------------------------------------------------------------------------------
+
+# ms_stim == manipulated in experiment.
+ms_resp: 1200  # the duration for making a response (fixed interval ITI).
+ms_fixation_check: 50 # duration to check fixation.
+ms_fixation: 1000 # duration of fixation at the start of a block.
+ms_feedback: 200 # duration of feedback.
+ms_iti: 400  # inter trial interval
+
+#------------------------------------------------------------------------------
+# Eyetracking params
+#------------------------------------------------------------------------------
+
+check_dist: 2  # distance from fixation (in deg) that's invalid
+check_time: 50  # duration (ms) to check fixation
+recal_time: 1500  # duration to wait before recalibrating.
+
+#------------------------------------------------------------------------------
+# misc
+#------------------------------------------------------------------------------
+
+break_trials: 72  # break after this many trials.
+
+
+

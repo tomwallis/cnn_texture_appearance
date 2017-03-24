@@ -1,0 +1,5 @@
+## Parameters for stimulus preparation.
+
+rms: 0.3  # rms contrast to use for the stimuli
+mean: 0.5 # mean grey level [0, 1] of stimuli
+size: 256 # size of resulting images:
