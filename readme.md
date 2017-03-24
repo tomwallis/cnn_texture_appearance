@@ -14,6 +14,8 @@ Stimuli can be found in a complementary archive (ref; stored separately due to l
 * `raw_data` = raw data from the experiments.
 * `results` = processed data from the experiments.
 
+The code to generate stimuli from the CNN texture model can be found at https://github.com/leongatys/DeepTextures
+
 ## Experiment labelling
 
 Note that Experiment 1 from the paper corresponds to `experiment_11` in the code and Experiment 2 in the paper corresponds to `experiment_12` in the code. We ran related but separate experiments that were stored in the same repository. I've kept the code as-is to reduce the need to relabel directories.
