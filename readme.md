@@ -18,7 +18,9 @@ Stimuli can be found in a complementary archive (http://doi.org/10.5281/zenodo.4
 * `documentation` = some testing protocols and subject demographics
 * `figures` = some figures from the paper (data figures produced by the `knitr` document)
 * `raw_data` = raw data from the experiments.
-* `results` = processed data from the experiments, including Stan fits (~150 MB RData binaries)
+* `results` = processed data from the experiments
+
+Because the fitted brms/Stan RData files were too large for git, they are attached to the release as a .zip file. To knit the document you should place these into the appropriate results subdirectory (i.e. `results/experiment_11/` and `results/experiment_12`).
 
 ## The article 
 
