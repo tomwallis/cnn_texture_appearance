@@ -1,58 +1,8 @@
-\documentclass[doc, 11pt,a4paper,natbib]{apa6}\usepackage[]{graphicx}\usepackage[]{color}
-%% maxwidth is the original width if it is less than linewidth
-%% otherwise use linewidth (to make sure the graphics do not exceed the margin)
-\makeatletter
-\def\maxwidth{ %
-  \ifdim\Gin@nat@width>\linewidth
-    \linewidth
-  \else
-    \Gin@nat@width
-  \fi
-}
-\makeatother
-
-\definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
-\newcommand{\hlnum}[1]{\textcolor[rgb]{0.686,0.059,0.569}{#1}}%
-\newcommand{\hlstr}[1]{\textcolor[rgb]{0.192,0.494,0.8}{#1}}%
-\newcommand{\hlcom}[1]{\textcolor[rgb]{0.678,0.584,0.686}{\textit{#1}}}%
-\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
-\newcommand{\hlstd}[1]{\textcolor[rgb]{0.345,0.345,0.345}{#1}}%
-\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.161,0.373,0.58}{\textbf{#1}}}%
-\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
-\newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
-\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
-\let\hlipl\hlkwb
-
-\usepackage{framed}
-\makeatletter
-\newenvironment{kframe}{%
- \def\at@end@of@kframe{}%
- \ifinner\ifhmode%
-  \def\at@end@of@kframe{\end{minipage}}%
-  \begin{minipage}{\columnwidth}%
- \fi\fi%
- \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
- \colorbox{shadecolor}{##1}\hskip-\fboxsep
-     % There is no \\@totalrightmargin, so:
-     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
- \MakeFramed {\advance\hsize-\width
-   \@totalleftmargin\z@ \linewidth\hsize
-   \@setminipage}}%
- {\par\unskip\endMakeFramed%
- \at@end@of@kframe}
-\makeatother
-
-\definecolor{shadecolor}{rgb}{.97, .97, .97}
-\definecolor{messagecolor}{rgb}{0, 0, 0}
-\definecolor{warningcolor}{rgb}{1, 0, 1}
-\definecolor{errorcolor}{rgb}{1, 0, 0}
-\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
-
-\usepackage{alltt}
+\documentclass[doc, 11pt,a4paper,natbib]{apa6}
 \usepackage[colorlinks=true,citecolor=black]{hyperref}
 \usepackage{lineno}
 
-\graphicspath{{../../figures/}}
+\graphicspath{{../figures/}}
 
 \sixauthors{Thomas S. A. Wallis}{Christina M. Funke}{Alexander S. Ecker}{Leon A. Gatys}{Felix A. Wichmann}{Matthias Bethge}
 \sixaffiliations{
@@ -113,18 +63,122 @@ While deep CNN (VGG-19) features can often be used to synthesise textures that h
 \authornote{
 Correspondence should be addressed to TSAW: thomas.wallis@uni-tuebingen.de
 }
-\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+
+
 \begin{document}
 
 \maketitle
 
 \linenumbers
 
+<<setup, echo=FALSE, results='hide', message=FALSE, warning=FALSE>>=
+library(plyr)
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+library(ggthemes)
+library(brms)
+library(loo)
+library(gridExtra)
+@
 
+<<plot_appearance_fun, echo=FALSE>>=
+plot_theme <- function(plt){
+  plt <- plt + theme_minimal(base_size = 10) +
+    theme(panel.grid.major = element_line(colour = "grey90", size = 0.5),
+          panel.grid.minor = element_line(colour = "grey92", size = 0.25),
+          panel.spacing = grid::unit(12, 'pt'),
+          axis.text = element_text(size = 8))
+  # plt <- plt + theme_bw(base_size = 10) + 
+  #   theme(axis.text = element_text(size = 8))  
+  return(plt)
+}
 
+fig_width_1_col <- 3
+fig_width_2_col <- 6.8
 
+@
 
+<<stat_printout_fun, echo=FALSE>>=
 
+compute_CIs <- function(x){
+  # compute CIs and p < 0 for vector of samples.
+  estimates <- quantile(x, probs = c(0.025, 0.5, 0.975))
+  
+  # use ecdf to compute the probability that the coefficient is less than zero:
+  fn <- ecdf(x)
+  fn(0)
+  
+  return(list(estimates = estimates,
+              p_less_zero = fn(0)))
+}
+
+print_CIs <- function(x, fit=NA, hypothesis=NA, ef=NA){
+  # x: a vector of posterior samples. median and 95% CIs returned.
+  # fit: the fit object.
+  # hypothesis: a string hypothesis testing a point null, passed 
+  # to brms's hypothesis function to compute the Savage-Dickey 
+  # bayes factor.
+  # ef: a vector of posterior samples of the effect size. 
+  
+  # function to print credible intervals and p > 0.
+  out <- compute_CIs(x)
+  
+  # formatting of P < 0:
+  if (round(out$p_less_zero, 3) == 1){
+    print_less_zero <- paste0(", $\\mathrm{p}(\\beta < 0) > $ ", 0.999)
+  } else if (round(out$p_less_zero, 3) == 0){
+    print_less_zero <- paste0(", $\\mathrm{p}(\\beta < 0) < $ ", 0.001)
+  } else {
+    print_less_zero <- paste0(", $\\mathrm{p}(\\beta < 0) = $ ",
+                              round(out$p_less_zero, 3))
+  }
+  
+  
+  # hyp <- brms::hypothesis(fit, hypothesis)
+  # # formatting of BF:
+  # if (round(hyp$hypothesis$Evid.Ratio, 2) < 0.01){
+  #   print_bf <- paste0(", $\\mathrm{BF_{Null}} < $ ", 0.01)
+  # } else {
+  #   print_bf <- paste0(", $\\mathrm{BF_{Null}} = $ ",
+  #                      round(hyp$hypothesis$Evid.Ratio, 2))
+  # }  
+  
+  # effect size computation:
+  # x assumed to be mean difference, var assumed to be summed relevant variance.
+  # see westfall et al 2014.
+  if (!is.na(ef)){
+    EFs <- compute_CIs(ef)
+    
+    printout <- paste0("$\\beta = $ ", 
+                       round(out$estimates[2], 2),
+                       ", 95\\% CI = [",
+                       round(out$estimates[1], 2),
+                       ", ",
+                       round(out$estimates[3], 2),
+                       "]",
+                       print_less_zero, 
+                       # print_bf, 
+                       ", $ d = $",
+                       round(EFs$estimates[2], 2),
+                       ", 95\\% CI = [",
+                       round(EFs$estimates[1], 2),
+                       ", ",
+                       round(EFs$estimates[3], 2),
+                       "]")
+  } else {
+    printout <- paste0("$\\beta = $ ",  
+                       round(out$estimates[2], 2),
+                       ", 95\\% CI = [",
+                       round(out$estimates[1], 2),
+                       ", ",
+                       round(out$estimates[3], 2),
+                       "]",
+                       print_less_zero)
+  }
+  return(printout)
+}
+@
 
 
 \section{Introduction}
@@ -142,11 +196,9 @@ Given the importance and ubiquity of visual textures, it is little wonder that t
 % why parameteric texture models?
 Seminal early work on visual texture perception includes that by Gibson \citep{gibson_perception_1950, beck_relation_1955} and by Julesz \citep{julesz_visual_1962,julesz_visual_1978,julesz_textons_1981}. 
 Julesz' thinking remains an important influence on approaches to texture perception, in particular the idea that there exists some set of statistics (parameters in a parametric model) that are both necessary and sufficient for matching the appearance of textures \citep[see also][]{portilla_parametric_2000}. 
-%However, in this paper we will consider the appearance and matching of natural photographic textures rather than the statistics of artificially-generated dot patterns.
 For  computer vision applications, where a goal might be to match the appearance of some region of texture to facilitate image compression, the most effective approaches can be nonparametric---for example, by \textit{quilting} repetitions of a base level crop over the area of the texture \citep[e.g.][]{efros_image_2001}. 
 However, nonparametric approaches have little to teach us about the human visual system because they make no explicit hypotheses about what features are represented.
 In this paper we will therefore focus on parametric texture models.
-% cite tcacik paper???
 
 % analysis / synthesis
 Parameteric models that aim to match the appearance of natural textures are typically assessed by examining artificial textures synthesised by the model \citep{heeger_pyramidbased_1995, safranek_perceptually_1990, safranek_perceptually_1989, zhu_filters_1998, portilla_parametric_2000}. 
@@ -176,10 +228,6 @@ Observers were allowed to view each stimulus array for unlimited time and to fov
 Under these viewing conditions, observers could easily discriminate original natural textures and PS-synthesised images from each other, whether the oddball was real or synthetic (average performance 85--90\%).
 However, when the original images were sourced from abstract artworks rather than photographs of fruits and vegetables, performance for discriminating real from PS-synthesised images was worse and depended on whether the oddball was real or synthesised (with performance around 55\% for the former and 65\% for the latter).
 Together with the results of \citet{balas_texture_2006}, these results suggest that the PS model better captures texture appearance in the periphery than in the fovea, and that the perceptual fidelity of the matching depends on the image or texture type.
-
-% [TODO: probably remove this paragraph] \citet{balas_attentive_2008} had observers sort texture images into groups of similar-looking textures, then examined the ability of three feature spaces (power spectrum, \citet{heeger_pyramidbased_1995} and \citet{portilla_parametric_2000}) to predict the perceptual clusters (posed as a multiclass classification problem).
-% The results showed that all models could classify human decisions better than chance and that the power spectrum model outperformed the other two.
-% While this indicates that the variance in similarity in this task is mostly related to power-spectral similarity, the relative failure of the two texture synthesis spaces may also reflect a paucity of training data, since the power spectrum alone should be predictable from those feature spaces.
 
 Finally, \citet{balas_invariant_2015} assessed whether the influence of illumination change on human texture perception could be captured by PS synthesis.
 Observers performed a match-to-sample task, in which they decided which of two match images depicted the same texture as a previously-presented sample.
@@ -252,7 +300,43 @@ Therefore, differences in psychophysical performance between these conditions ar
 
 \section{General methods}
 
+<<load_experiment_1_data, echo=FALSE, cache=TRUE, results='hide'>>=
 
+if (isTRUE(getOption('knitr.in.progress'))){
+  # knitting manuscript:
+  top_dir <- setwd("..")  # knitr wd is where the .Rmd lives. Go up one level
+  setwd()
+} else {
+  # code executed interactively:
+  top_dir <- getwd()  # top directory given by RStudio project
+}
+
+experiment_num <- 11
+
+# here we load the main data file:
+results_dir <- file.path(top_dir, "results", paste0("experiment_", experiment_num))
+data_file <- file.path(results_dir, "all_data.csv")
+raw_dat <- read.table(data_file, header=TRUE, sep=",")  # no dropped trials.
+
+# load pre-processed data (used for fitting)
+load(file.path(results_dir, "final_data.RData"))
+
+# load model fit (see expt_11_fit_sum_code_model_stan.R):
+load(file.path(results_dir, "model_fit.RData"))
+
+# load helper functions:
+source(file.path(top_dir, "code", "analysis", "helper_funs.R"))
+
+# save data and fit to a named variable to avoid mistaking for subsequent experiments:
+dat_1 <- dat
+raw_dat_1 <- raw_dat
+fit_1 <- fit
+fit_additive_1 <- fit_additive
+loo_1 <- loo
+loo_additive_1 <- loo_additive
+
+rm(raw_dat, dat, fit, fit_additive, loo, loo_additive)
+@
 
 All stimuli, data and code to reproduce the figures and statistics reported in this paper are provided online (Raw data and code at \url{TODO}, stimuli at \url{http://doi.org/10.5281/zenodo.438031}).
 This document was prepared using the \texttt{knitr} package \citep{xie_knitr_2013, xie_dynamic_2015} in the R statistical environment \citep{r_core_development_team_r:_2016,wickham_dplyr:_2016,wickham_ggplot2_2009,wickham_splitapplycombine_2011, auguie_gridextra:_2016, arnold_ggthemes:_2016} to improve its reproducibility.
@@ -322,8 +406,6 @@ The model uses five pooling and 16 convolutional layers (plus three fully-connec
 The layers are typically labelled with the stack (e.g. ``conv1'' or ``pool1'') with an underscore denoting the sub-layer.
 For example, ``conv1\_1'' refers to the first convolutional layer of the network, whereas ``conv3\_2'' would be the second convolutional layer of the third stack (Figure \ref{fig:vgg}).
 We use a subset of these feature maps for texture synthesis (see below).
-% The pooling operation means that in higher layers the size of the feature maps decreases, whereas the number of feature maps increases. 
-% Conversely, these smaller feature maps correspond to a larger region of the original image (a loose analogy can be made to the increasing size of receptive fields in visual neurons in ascending the ventral hierarchy).
 The code was implemented in Theano using the Lasagne framework, and may be downloaded from \url{https://github.com/leongatys/DeepTextures}.
 The weights of the VGG-19 network are scaled such that the mean activation of each filter over images and positions is equal to 1.
 
@@ -346,15 +428,27 @@ The approximate number of parameters in each CNN texture model are shown in Figu
 Outputs were saved as 16-bit \texttt{.png} images.
 Example syntheses can be seen in Figure \ref{fig:stimuli}.
 
+<<cap-num-params, echo=FALSE, cache=TRUE>>=
+cap <- "Approximate number of parameters matched by each texture model assessed in the present paper. The dashed line shows the number of pixels in a 256-pixel-square image. Models above the line are overcomplete."
+@
 
+<<num-params, echo=FALSE, cache=TRUE, fig.width=fig_width_1_col, fig.height=3, fig.cap=cap, fig.env="figure">>=
 
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{figure}
-\includegraphics[width=\maxwidth]{figure/num-params-1} \caption[Approximate number of parameters matched by each texture model assessed in the present paper]{Approximate number of parameters matched by each texture model assessed in the present paper. The dashed line shows the number of pixels in a 256-pixel-square image. Models above the line are overcomplete.}\label{fig:num-params}
-\end{figure}
+# create data:
+num_params <- data.frame(model = c("conv1", "conv2", "conv3", "conv4", "conv5", "PS", "powerspec"),
+                         n_params = c(2000, 10000, 43000, 175000, 306000, 1000, 209408))
 
+num_params$thousand_params <- num_params$n_params / 1000
 
-\end{knitrout}
+plt <- ggplot(num_params, aes(x = reorder(model, thousand_params), y = thousand_params)) + 
+  geom_col() + 
+  geom_hline(yintercept = (256*256) / 1000, linetype = "dashed") + 
+  xlab("") + ylab("Number of parameters (thousands)")
+
+plt <- plot_theme(plt) + theme(axis.text.x = element_text(angle = 90, vjust = 0.5))
+plt
+
+@
 
 
 \subsection{CNN plus power spectrum model}
@@ -426,45 +520,157 @@ More details and analysis are provided in the Appendix.
 \section{Experiment 1: Original texture model}
 % this is labelled "experiment 11" in the code.
 
+<<experiment_1a_data_preprocessing, echo=FALSE>>=
+dat_1a <- dat_1 %>% 
+  filter(subj == "TW" | subj == "CF")
 
+n_trials_each <- dat_1a %>% group_by(subj) %>% summarise(n = n())
+
+if (n_trials_each$n[1] != n_trials_each$n[2]){
+  warning("Observers have done different numbers of trials!")
+}
+
+@
 
 This experiment compares textures produced by the CNN texture model to the PS model under two observation conditions.
 This experiment was conducted on two groups of observers.
 The first (Experiment 1a) consisted of two of the authors, who were familiar with the stimuli, experienced with the psychophysical task, and optically corrected as appropriate.
-The authors completed five experiment sessions (each consisting of one parafoveal and one inspection block), for a total of 3600 trials each.
+The authors completed five experiment sessions (each consisting of one parafoveal and one inspection block), for a total of \Sexpr{n_trials_each$n[1]} trials each.
 The order of presentation conditions was pseudorandomly determined for each author in each experiment session.
-The dataset consisted of 7200 trials.
+The dataset consisted of \Sexpr{nrow(dat_1a)} trials.
 
+<<experiment_1b_data_preprocessing, echo=FALSE>>=
+raw_1b <- raw_dat_1 %>% 
+  filter(subj != "TW" & subj != "CF")
 
+dat_1b <- dat_1 %>% 
+  filter(subj != "TW" & subj != "CF")
 
-The second group (Experiment 1b) consisted of ten\footnote{Ten was chosen \textit{a priori} based on pilot testing.} na\"{i}ve observers (median age 25 years, min 21, max 36), who completed only one experimental session each (i.e. one block of each presentation time)\footnote{
+missing_trials <- raw_1b %>%
+  group_by(subj, correct) %>%
+  summarise(n = n()) %>%
+  mutate(prop = n / sum(n)) %>%
+  filter(is.na(correct))
+
+@
+
+The second group (Experiment 1b) consisted of ten\footnote{Ten was chosen \textit{a priori} based on pilot testing.} na\"{i}ve observers (median age \Sexpr{median(dat_1b$age)} years, min \Sexpr{min(dat_1b$age)}, max \Sexpr{max(dat_1b$age)}), who completed only one experimental session each (i.e. one block of each presentation time)\footnote{
 Observer S9 completed 144 trials of the "Inspection" condition before this data was lost due to computer malfunction. The observer repeated the full testing session; thus this observer had more practice and exposure to the images than the other observers.}.
 They were paid 10~EUR for the one hour session.
 Half the observers saw the parafoveal condition first, whereas the other half performed the inspection condition first.
 All protocols conformed to Standard 8 of the American Psychological Association’s Ethical Principles of Psychologists and Code of Conduct (2010) and to the Declaration of Helsinki (with the exception of article 35 concerning pre-registration in a public database).
-%The raw dataset for this group consisted of nrow(raw_1b) trials; of these, observers failed to respond in nrow(raw_dat[is.na(raw_1b$correct), ]) trials.
-The final dataset consisted of 7200 trials.
+The final dataset consisted of \Sexpr{nrow(dat_1b)} trials.
 
 \subsection{Results}
 
+<<plot_settings, echo=FALSE>>=
+line_alpha <- 0.4
+ribbon_alpha <- 0.2
+point_size <- 0.3  # for model estimates
+nudge_amount <- 0  # position nudge for point offsets.
+@
 
+<<cap_expt-1-summary, echo=FALSE>>=
+subj_means_1a <- dat_1a %>%
+  group_by(subj, image_model, presentation_cond) %>%
+  summarise(pc = mean(correct), n = n())
 
+subj_means_1b <- dat_1b %>%
+  group_by(subj, subj_display, image_model, presentation_cond) %>%
+  summarise(pc = mean(correct), n = n())
 
-
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{figure*}
-\includegraphics[width=\maxwidth]{figure/expt-1-summary-1} \caption[Performance as a function of image model in Experiment 1, averaging over images]{Performance as a function of image model in Experiment 1, averaging over images. 
-              For the authors (CF and TW), points show the mean proportion correct and error bars show 95\% bootstrapped confidence intervals. Each data point represents 300 trials. 
+cap <- paste0("Performance as a function of image model in Experiment 1, averaging over images. 
+              For the authors (CF and TW), points show the mean proportion correct and error bars show 95\\% bootstrapped confidence intervals. Each data point represents ",
+              median(subj_means_1a$n), " trials. 
 Solid lines show mixed-effects model predictions for this observer (mean of posterior regression line), ignoring random effects of image.
-For naive observers (right panel, N = 10), points show grand mean and 95\% bootstrapped confidence intervals based on individual observer means; lines represent mixed-effects model predictions and uncertainty for the population fixed effects, ignoring random effects of observer and image.
+For naive observers (right panel, N = 10), points show grand mean and 95\\% bootstrapped confidence intervals based on individual observer means; lines represent mixed-effects model predictions and uncertainty for the population fixed effects, ignoring random effects of observer and image.
 The dashed horizontal lines in all panels show chance performance.
-Shaded regions in all panels show 95\% credible intervals for the given model. 
+Shaded regions in all panels show 95\\% credible intervals for the given model. 
 Note these are independent, and so overestimate the uncertainty for making any pairwise comparison between conditions (see appendix for details).
-}\label{fig:expt-1-summary}
-\end{figure*}
+")
+@
+
+<<expt-1-summary, echo=FALSE, cache=TRUE, fig.width=fig_width_2_col, fig.height=2.5, fig.cap=cap, fig.env="figure*", warning=FALSE>>=
+plt <- ggplot(dat_1a, aes(x = image_model, y = correct,
+                          shape = presentation_cond,
+                          colour = presentation_cond)) + 
+  geom_hline(yintercept = 1/3, linetype = "dashed") + 
+  facet_wrap(~ subj_display, ncol = 3)  # subject display facets this into CF, TW and Naive.
 
 
-\end{knitrout}
+# compute model predictions for individual subjects:
+subj_predictions <- expand.grid(subj = c("TW", "CF"),
+                                image_model = levels(dat_1a$image_model),
+                                presentation_cond = levels(dat_1a$presentation_cond))
+subj_predictions$image_code <- NA
+blah <- fitted(fit_1, newdata = subj_predictions, scale = "response",
+               re_formula = ~ (image_model * presentation_cond | subj), 
+               allow_new_levels = TRUE)
+
+subj_predictions <- cbind(subj_predictions, blah)
+subj_predictions$subj_display <- subj_predictions$subj
+
+# plot model predictions for TW and CF:
+plt <- plt + 
+  geom_ribbon(data = subj_predictions,
+              aes(ymax = `97.5%ile`, ymin = `2.5%ile`, y = NULL,
+                  group = presentation_cond,
+                  fill = presentation_cond, colour = NULL), alpha = ribbon_alpha) +
+  geom_line(data = subj_predictions, aes(y = Estimate, group = presentation_cond)) 
+
+# this plots the individual observer data (TW and CF, because default dataframe is 1a):
+plt <- plt + stat_summary(fun.data = "mean_cl_boot",
+                          position = position_dodge(width=nudge_amount),
+                          size = point_size)
+
+# compute model predictions for population:
+model_dat <- marginal_effects(fit_1, effects = "image_model:presentation_cond")
+model_dat <- model_dat$`image_model:presentation_cond`
+model_dat$subj_display <- factor("Naive", levels = levels(dat_1a$subj_display))
+
+# plot subject level marginals:
+plt <- plt + 
+  geom_ribbon(data = model_dat,
+              aes(ymax = `upper__`, ymin = `lower__`, y = NULL,
+                  group = presentation_cond,
+                  fill = presentation_cond, colour = NULL), alpha = ribbon_alpha) +
+  geom_line(data = model_dat,
+            aes(y = estimate__, group = presentation_cond))
+
+plt <- plt + stat_summary(data = subj_means_1b,
+                          aes(y = pc),
+                          fun.data = "mean_cl_boot", 
+                          position = position_dodge(width=nudge_amount),
+                          size = point_size)
+
+# add subject means:
+for (i in 1 : length(unique(subj_means_1b$subj))){
+  this_subj <- unique(subj_means_1b$subj)[i]
+  this_dat <- subj_means_1b %>% filter(subj == this_subj)
+
+  # this gets too cluttered, unfortunately.
+  # plt <- plt + geom_line(data = this_dat,
+  #                        aes(y = pc, group = presentation_cond),
+  #                        alpha = line_alpha)
+
+}
+
+
+plt <- plt + coord_cartesian(ylim = c(0, 1)) +
+  scale_y_continuous(name = "Proportion correct", breaks = c(0, .5, 1)) +  
+  xlab("Image model") + ylab("Proportion correct")
+
+# fix scales:
+plt <- plt + scale_colour_fivethirtyeight(name = "")
+plt <- plt + scale_fill_fivethirtyeight(name = "")
+plt <- plt + scale_shape(name = "")
+# plt <- plot_theme(plt) + theme(legend.position = c(0.5, 0.15),
+#                                legend.spacing = unit(1, units = "pt"),
+#                                legend.direction = "horizontal")
+plt <- plot_theme(plt) + theme(legend.position = "top")
+# plt <- plt + theme(panel.spacing = unit(1, "lines"))
+plt
+@
 
 Performance as a function of image model and presentation time, averaging over images, is shown in Figure \ref{fig:expt-1-summary}.
 More complex CNN models (matching more parameters) tend to produce poorer psychophysical performance (i.e. better matches to natural appearance), and the performance in the parafoveal condition is poorer than the inspection condition.
@@ -475,21 +681,113 @@ Estimates and credible intervals from the mixed-effects model are shown as lines
 
 
 % individual images.
+<<cap_expt-1-images, echo=FALSE>>=
 
+subj_means_1a <- dat_1a %>%
+  group_by(subj, image_model, presentation_cond, image_name) %>%
+  summarise(pc = mean(correct), n = n())
 
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{figure*}
-\includegraphics[width=\maxwidth]{figure/expt-1-images-1} \caption{Performance for each image in Experiment 1. 
-              Points show the grand mean of all observer means (based on 25 trials for authors and 5 trials for naives). 
-              Error bars on points show $\pm 1$ SEM. 
-              Lines show mixed-effects model estimates (posterior mean, including random effects of image but excluding random effects of subject) and shaded regions show 95\% credible intervals.
-              That is, the model predicts mean performance to lie in the shaded area with 95\% probability, if the image was shown to an average, unknown subject.
+subj_means_1b <- dat_1b %>%
+  group_by(subj, image_model, presentation_cond, image_name) %>%
+  summarise(pc = mean(correct), n = n())
+
+cap <- paste0("Performance for each image in Experiment 1. 
+              Points show the grand mean of all observer means (based on ", median(subj_means_1a$n)," trials for authors and ", median(subj_means_1b$n)," trials for naives). 
+              Error bars on points show $\\pm 1$ SEM. 
+              Lines show mixed-effects model estimates (posterior mean, including random effects of image but excluding random effects of subject) and shaded regions show 95\\% credible intervals.
+              That is, the model predicts mean performance to lie in the shaded area with 95\\% probability, if the image was shown to an average, unknown subject.
               Images have been arranged according to consistent patterns of results (reading left-to-right).
-              The original images can be seen in Figure \ref{fig:original_stimuli}.}\label{fig:expt-1-images}
-\end{figure*}
+              The original images can be seen in Figure \\ref{fig:original_stimuli}.")
+@
+
+<<expt-1-images, echo=FALSE, cache=TRUE, fig.width=fig_width_2_col, fig.height=4.5, fig.cap=cap, fig.env="figure*", warning=FALSE>>=
+
+# reorder panels of images to put consistent results together:
+dat_1$image_name <- factor(dat_1$image_name, c(
+  "Beans",
+  "Bricks",  
+  "Flowers",
+  "Grass",
+  "Scrap",
+  "Carpet",
+  "Cracks",
+  "Gravel",
+  "Paper",
+  "Candy",
+  "Metal",
+  "Tiles"  
+))
+
+plt <- ggplot(dat_1, aes(x = image_model, y = correct,
+                         shape = presentation_cond,
+                         colour = presentation_cond)) + 
+  geom_hline(yintercept = 1/3, linetype = "dashed") + 
+  facet_wrap(~ image_name) 
+
+## model predictions at image level:
+predictions <- expand.grid(image_model = levels(dat_1a$image_model),
+                           presentation_cond = levels(dat_1a$presentation_cond),
+                           image_code = levels(dat_1a$image_code))
+predictions$subj <- NA
+blah <- fitted(fit_1, newdata = predictions,
+               scale = "response",
+               re_formula = ~ (image_model * presentation_cond | image_code), 
+               allow_new_levels = TRUE)
 
 
-\end{knitrout}
+predictions <- cbind(predictions, blah)
+predictions$subj_display <- predictions$subj
+
+# need to include image code for plotting:
+predictions$image_name <- predictions$image_code
+predictions$image_name <- revalue(predictions$image_name, 
+                                  c("BrickRound0043_1_S" = "Bricks", 
+                                    "Carpet0047_1_S" = "Carpet",
+                                    "Crackles0004_1_S" = "Cracks",
+                                    "FlowerBeds0044_1_S" = "Flowers",
+                                    "FoodVarious0001_1_S" = "Candy",
+                                    "GrassDead0131_1_S" = "Grass",
+                                    "Gravel0097_1_S" = "Gravel",
+                                    "MetalFloorsBare0024_1_S" = "Metal",
+                                    "PaperCrumpled0004_1_S" = "Paper",
+                                    "RooftilesCeramic0037_1_S" = "Tiles",
+                                    "Scrapyard0033_1_S" = "Scrap",
+                                    "Vegetables0024_1_S" = "Beans"))  
+
+## plot model predictions:
+plt <- plt +
+  geom_ribbon(data = predictions,
+              aes(ymax = `97.5%ile`, ymin = `2.5%ile`, y = NULL,
+                  group = presentation_cond,
+                  fill = presentation_cond, colour = NULL), alpha = ribbon_alpha) + 
+  geom_line(data = predictions, aes(y = Estimate, group = presentation_cond))
+
+
+## subject data averages:
+subj_data <- dat_1 %>% 
+  group_by(subj, image_name, image_model, presentation_cond) %>% 
+  summarise(pc = mean(correct), n = n())
+
+# plot with mean and SE:
+plt <- plt + stat_summary(data = subj_data, aes(y = pc),
+                          fun.data = "mean_se", 
+                          # position = position_dodge(width=nudge_amount),
+                          size = point_size)
+
+
+plt <- plt + coord_cartesian(ylim = c(0, 1)) +
+  scale_y_continuous(name = "Proportion correct", breaks = c(0, .5, 1)) +
+  xlab("Image model") + ylab("Proportion correct")
+
+# fix scales:
+plt <- plt + scale_colour_fivethirtyeight(name = "")
+plt <- plt + scale_fill_fivethirtyeight(name = "")
+plt <- plt + scale_shape(name = "")
+plt <- plot_theme(plt) + theme(legend.position = "top") + 
+  theme(axis.text = element_text(size = 6))
+plt
+
+@
 
 We observe distinctly different effects of image model and presentation time at the level of individual images (Figure \ref{fig:expt-1-images}).
 Five images (Beans, Bricks, Flowers, Grass and Scrap) show a similar pattern of results as in the average data.
@@ -519,43 +817,197 @@ Original texture images are copyrighted by www.textures.com (used with permissio
 \label{fig:expt_2_stimuli}
 \end{figure}
 
+<<load_experiment_2_data, echo=FALSE, results='hide'>>=
+top_dir <- "~/Dropbox/Projects/dnn_texture_appearance"
 
+experiment_num <- 12
+
+# here we load the main data file:
+results_dir <- file.path(top_dir, "results", paste0("experiment_", experiment_num))
+data_file <- file.path(results_dir, "all_data.csv")
+raw_dat <- read.table(data_file, header=TRUE, sep=",")  # no dropped trials.
+
+# load pre-processed data (used for fitting)
+load(file.path(results_dir, "final_data.RData"))
+
+# load model fit (see expt_12_fit_sum_code_model_stan.R):
+load(file.path(results_dir, "model_fit.RData"))
+
+# save data and fit to a named variable to avoid mistaking for subsequent experiments:
+dat_2 <- dat
+raw_dat_2 <- raw_dat
+fit_2 <- fit
+loo_2 <- loo
+
+
+n_trials_each_expt_2 <- dat_2 %>% group_by(subj) %>% summarise(n = n())
+s1 <- n_trials_each_expt_2 %>% filter(subj == "S1")
+
+rm(raw_dat, dat, fit, loo)
+
+@
 
 Five observers participated in this experiment, consisting of two authors (CF and TW) and three na\"{i}ve observers, one of whom had participated in the first experiment.
-All observers completed two experiment sessions (each consisting of one parafoveal and one inspection block) for a total of 1440 trials,  with the exception of S1, who did not return for a second session of testing and so completed only 720 trials.
+All observers completed two experiment sessions (each consisting of one parafoveal and one inspection block) for a total of \Sexpr{n_trials_each_expt_2$n[1]} trials,  with the exception of S1, who did not return for a second session of testing and so completed only \Sexpr{s1$n} trials.
 
 
 \subsection{Results}
 
+<<cap_expt-2-summary, echo=FALSE>>=
+
+subj_means <- dat_2 %>%
+  group_by(subj, image_model, presentation_cond) %>%
+  summarise(pc = mean(correct), n = n())
+
+cap <- paste0("Performance as a function of image model in Experiment 2, averaging over images.
+              Points show mean and 95\\% confidence intervals on performance (each based on ", 
+              median(subj_means$n), " trials for all observers except S2).
+              Lines show mixed-effects model predictions for each observer (mean of posterior regression line) and shaded regions show model 95\\% credible intervals, ignoring random effects of image. ")
+@
+
+<<expt-2-summary, echo=FALSE, cache=TRUE, fig.width=fig_width_1_col, fig.height=3.5, fig.cap=cap, warning=FALSE>>=
+plt <- ggplot(dat_2, aes(x = image_model, y = correct,
+                         shape = presentation_cond,
+                         colour = presentation_cond)) + 
+  geom_hline(yintercept = 1/3, linetype = "dashed") + 
+  facet_wrap(~ subj, ncol = 2)
+
+# # compute model predictions for individual subjects:
+subj_predictions <- expand.grid(subj = unique(dat_2$subj),
+                                image_model = levels(dat_2$image_model),
+                                presentation_cond = levels(dat_2$presentation_cond))
+blah <- fitted(fit_2, newdata = subj_predictions, scale = "response",
+               re_formula = ~ (image_model * presentation_cond | subj))
+
+subj_predictions <- cbind(subj_predictions, blah)
+ 
+# plot model predictions for TW and CF:
+plt <- plt +
+  geom_ribbon(data = subj_predictions,
+              aes(ymax = `97.5%ile`, ymin = `2.5%ile`, y = NULL,
+                  group = presentation_cond,
+                  fill = presentation_cond, colour = NULL), alpha = ribbon_alpha) +
+  geom_line(data = subj_predictions, aes(y = Estimate, group = presentation_cond))
+
+# this plots the individual observer data (TW and CF, because default dataframe is 1a):
+plt <- plt + stat_summary(fun.data = "mean_cl_boot", 
+                          position = position_dodge(width=nudge_amount),
+                          size = point_size)
+
+plt <- plt + coord_cartesian(ylim = c(0, 1)) +
+  scale_y_continuous(name = "Proportion correct", breaks = c(0, .5, 1)) +  
+  xlab("Image model") + ylab("Proportion correct")
+
+# fix scales:
+plt <- plt + scale_colour_fivethirtyeight(name = "")
+plt <- plt + scale_fill_fivethirtyeight(name = "")
+plt <- plt + scale_shape(name = "")
+plt <- plot_theme(plt) + theme(legend.position = c(0.75, 0.15),
+                               legend.spacing = unit(1, units = "pt"))
+plt
+@
+
+<<cap_expt-2-images, echo=FALSE>>=
+subj_data <- dat_2 %>% 
+  group_by(subj, image_name, image_model, presentation_cond) %>% 
+  summarise(pc = mean(correct), n = n())
 
 
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{figure}
-\includegraphics[width=\maxwidth]{figure/expt-2-summary-1} \caption[Performance as a function of image model in Experiment 2, averaging over images.
-              Points show mean and 95\% confidence intervals on performance (each based on 240 trials for all observers except S2).
-              Lines show mixed-effects model predictions for each observer (mean of posterior regression line) and shaded regions show model 95\% credible intervals, ignoring random effects of image]{Performance as a function of image model in Experiment 2, averaging over images.
-              Points show mean and 95\% confidence intervals on performance (each based on 240 trials for all observers except S2).
-              Lines show mixed-effects model predictions for each observer (mean of posterior regression line) and shaded regions show model 95\% credible intervals, ignoring random effects of image. }\label{fig:expt-2-summary}
-\end{figure}
+cap <- paste0("Performance for each image in Experiment 2.
+              Points show means and $\\pm 1 SEM$ over observer means.
+              Faint lines link individual observer mean performance (based on ",
+              median(subj_data$n),
+              " trials for all observers except S2).
+              Solid lines show mixed-effects model estimates (posterior mean) and shaded regions show 95\\% credible intervals.")
+@
+
+<<expt-2-images, echo=FALSE, cache=TRUE, fig.width=fig_width_2_col, fig.height=4.5, fig.cap=cap, fig.env="figure*", warning=FALSE>>=
+
+# reorder panels of images to put consistent results together:
+dat_2$image_name <- factor(dat_2$image_name, c(
+  "Beans",
+  "Bricks",  
+  "Flowers",
+  "Grass",
+  "Scrap",
+  "Carpet",
+  "Cracks",
+  "Gravel",
+  "Paper",
+  "Candy",
+  "Metal",
+  "Tiles"  
+))
+
+plt <- ggplot(dat_2, aes(x = image_model, y = correct, 
+                         shape = presentation_cond,
+                         colour = presentation_cond)) + 
+  geom_hline(yintercept = 1/3, linetype = "dashed") + 
+  facet_wrap(~ image_name) 
+
+## model predictions at image level:
+predictions <- expand.grid(image_model = levels(dat_2$image_model),
+                           presentation_cond = levels(dat_2$presentation_cond),
+                           image_code = levels(dat_2$image_code))
+blah <- fitted(fit_2, newdata = predictions,
+               scale = "response",
+               re_formula = ~ (image_model * presentation_cond | image_code))
 
 
-\end{knitrout}
+predictions <- cbind(predictions, blah)
+
+# # need to include image code for plotting:
+predictions$image_name <- predictions$image_code
+predictions$image_name <- revalue(predictions$image_name,
+                                  c("BrickRound0043_1_S" = "Bricks",
+                                    "Carpet0047_1_S" = "Carpet",
+                                    "Crackles0004_1_S" = "Cracks",
+                                    "FlowerBeds0044_1_S" = "Flowers",
+                                    "FoodVarious0001_1_S" = "Candy",
+                                    "GrassDead0131_1_S" = "Grass",
+                                    "Gravel0097_1_S" = "Gravel",
+                                    "MetalFloorsBare0024_1_S" = "Metal",
+                                    "PaperCrumpled0004_1_S" = "Paper",
+                                    "RooftilesCeramic0037_1_S" = "Tiles",
+                                    "Scrapyard0033_1_S" = "Scrap",
+                                    "Vegetables0024_1_S" = "Beans"))
+
+# ## plot model predictions:
+plt <- plt +
+  geom_ribbon(data = predictions,
+              aes(ymax = `97.5%ile`, ymin = `2.5%ile`, y = NULL,
+                  group = presentation_cond,
+                  fill = presentation_cond, colour = NULL), alpha = ribbon_alpha) +
+  geom_line(data = predictions, aes(y = Estimate, group = presentation_cond))
+
+# plot with mean and SE:
+plt <- plt + stat_summary(data = subj_data, aes(y = pc),
+                          fun.data = "mean_se",
+                          position = position_dodge(width=nudge_amount),
+                          size = point_size)
+
+for (i in 1 : length(unique(subj_data$subj))){
+  this_subj <- unique(subj_data$subj)[i]
+  this_dat <- subj_data %>% filter(subj == this_subj)
+  # ls <- "solid"
+  
+  plt <- plt + geom_line(data = this_dat, aes(y = pc, group = presentation_cond), 
+                         alpha = 0.4)
+}
 
 
+plt <- plt + coord_cartesian(ylim = c(0, 1)) +
+  scale_y_continuous(name = "Proportion correct", breaks = c(0, .5, 1)) +
+  xlab("Image model") + ylab("Proportion correct")
 
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{figure*}
-\includegraphics[width=\maxwidth]{figure/expt-2-images-1} \caption[Performance for each image in Experiment 2.
-              Points show means and $\pm 1 SEM$ over observer means.
-              Faint lines link individual observer mean performance (based on 20 trials for all observers except S2).
-              Solid lines show mixed-effects model estimates (posterior mean) and shaded regions show 95\% credible intervals]{Performance for each image in Experiment 2.
-              Points show means and $\pm 1 SEM$ over observer means.
-              Faint lines link individual observer mean performance (based on 20 trials for all observers except S2).
-              Solid lines show mixed-effects model estimates (posterior mean) and shaded regions show 95\% credible intervals.}\label{fig:expt-2-images}
-\end{figure*}
+# fix scales:
+plt <- plt + scale_colour_fivethirtyeight(name = "")
+plt <- plt + scale_fill_fivethirtyeight(name = "")
+plt <- plt + scale_shape(name = "")
+plt <- plot_theme(plt) + theme(legend.position = "top")
+plt
 
-
-\end{knitrout}
+@
 
 For average performance over images (Figure \ref{fig:expt-2-summary}) and at the individual image level (Figure \ref{fig:expt-2-images}), the results of Experiment 2 are similar to those of Experiment 1 for the conv5 and PS models.
 The powerspec model produces similar performance to the conv5 model for most images, with the possible exceptions of Beans, Bricks, Flowers and Grass, in which human performance is slightly higher than for conv5 (i.e. the powerspec model is less effective at matching appearance than conv5). 
@@ -586,20 +1038,78 @@ For example, textures with strong periodicities and little variation between ind
 To account for this image-specific variation, we additionally computed the maximum cross-correlation between an N $\times$ N centre crop from the original texture, and the full $256^2$ pixel image itself (after excluding shifts of +/- 16 pixels around the centre, which would trivially return one).
 This value can be seen as a measure of self-similarity.
 
-
-
-
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{figure*}
-\includegraphics[width=\maxwidth]{figure/cross_corr-1} \caption[Controlling for texture model overfit]{Controlling for texture model overfit. 
+<<cap_cross_corr, echo=FALSE>>=
+cap <- paste0("Controlling for texture model overfit. 
               Points show the average maximum cross-correlations between crops of model syntheses (colours) and the original images, for three different crop sizes (32, 64 and 128 pixels; panels). 
               If the model simply copied and phase-shifted the original, these values would be approximately one.
               Bars show the baseline of a crop from the original image correlated to itself.
-              Some images are more self-similar, and thus require some degree of copying to match appearance.}\label{fig:cross_corr}
-\end{figure*}
+              Some images are more self-similar, and thus require some degree of copying to match appearance.")
+@
 
 
-\end{knitrout}
+<<cross_corr, echo=FALSE, cache=TRUE, fig.width=fig_width_2_col, fig.height=3.5, fig.cap=cap, fig.env="figure*", warning=FALSE>>=
+# import data, stick scales together:
+
+process_one_file <- function(dat){
+  # re-order data using order from Alex's code:
+  idx <- c(12, 1, 4, 6, 11, 2, 3, 7, 9, 5, 8, 10)
+  dat <- dat[idx, ]
+  
+  dat$im_code <- c("Beans",
+                   "Bricks",  
+                   "Flowers",
+                   "Grass",
+                   "Scrap",
+                   "Carpet",
+                   "Cracks",
+                   "Gravel",
+                   "Paper",
+                   "Candy",
+                   "Metal",
+                   "Tiles")
+  
+  dat$name <- NULL
+  dat$PS <- dat$ps_synths
+  dat$ps_synths <- NULL
+  return(dat)
+}
+
+cross_cor_dat <- data.frame()
+scales <- c(32, 64, 128)
+
+for (i in 1 : length(scales)){
+  blah <- read.csv(file = file.path(top_dir, "results", "copy_machine_crosscor", paste0("data", scales[i], ".csv")))
+  blah <- process_one_file(blah)
+  blah$scale <- scales[i]
+  cross_cor_dat <- rbind(cross_cor_dat, blah)
+}
+
+
+# reshape
+cross_cor_models <- cross_cor_dat %>% 
+  gather(model, xcor, conv5, powerspec, PS, original) %>% 
+  filter(model != "original")
+
+cross_cor_orig <- cross_cor_dat %>% 
+  gather(model, xcor, conv5, powerspec, PS, original) %>% 
+  filter(model == "original")
+
+# plot
+plt <- ggplot(cross_cor_models, aes(x = reorder(im_code, xcor), y = xcor, colour = model, fill = model)) + 
+  facet_wrap(~ scale, ncol = 3) + 
+  geom_col(data = cross_cor_orig, aes(fill = NULL, colour = NULL), alpha = 0.2) +
+  # geom_crossbar(data = cross_cor_orig, aes(ymin = xcor, ymax = xcor, fill = NULL, colour = NULL), alpha = 0.5) +
+  geom_point() + 
+  scale_colour_fivethirtyeight(name = "") + 
+  scale_fill_fivethirtyeight(name = "") + 
+  scale_y_continuous(limits = c(0, 1), breaks = c(0, 0.5, 1)) + 
+  labs(x = "", y = "Maximum cross-correlation")
+  
+plt <- plot_theme(plt) + theme(legend.position = "top") + 
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5))
+plt
+
+@
 
 
 The maximum cross-correlation values for the images used in this paper are shown in Figure \ref{fig:cross_corr}. 
@@ -735,7 +1245,17 @@ and the German Science Foundation (DFG; priority program 1527, BE 3848/2-1 and C
 
 \subsection{Bayesian multilevel modelling}
 
+<<mcmc_methods, echo=FALSE, cache=TRUE>>=
+options(scipen = 20)
 
+stan_pars <- fit_1$fit@stan_args
+n_chains <- length(stan_pars)
+algorithm <- stan_pars[[1]]$algorithm
+thin <- stan_pars[[1]]$thin
+warmup <- stan_pars[[1]]$warmup
+samples <- stan_pars[[1]]$iter
+final_samples <- (samples - warmup) / thin * n_chains
+@
 
 To analyse the data, we first made the (standard) assumptions that the observers' responses on each trial (correct / incorrect) reflected a Bernoulli process, and that the response on a given trial was not dependent on previous responses.
 We estimate the success probability of this Bernoulli process using a generalised linear mixed-effects model (GLMM) with a logistic link function whose parameters were estimated in a Bayesian framework\footnote{
@@ -762,7 +1282,7 @@ model_formula <- correct ~
 \end{small}
 
 We used conservative, weakly-informative prior distributions in the sense that they bias estimates towards the middle of the range of possible values and away from indicating large effects.
-Consider that the model coefficients are defined on the linear predictor scale, whose effective range runs from approximately -5 (returning an expected success probability of 0.007) to 5 (returning 0.993; a linear predictor value of zero gives 0.5).
+Consider that the model coefficients are defined on the linear predictor scale, whose effective range runs from approximately -5 (returning an expected success probability of \Sexpr{round(plogis(-5), 3)}) to 5 (returning \Sexpr{round(plogis(5), 3)}; a linear predictor value of zero gives \Sexpr{round(plogis(0), 3)}).
 We therefore expect that no standardised fixed-effect coefficient to be larger than $\pm 5$ (i.e. the difference between two factor levels runs from the lowest to the highest observable success probabilities, other effects being equal), and they will very likely be smaller than this.
 We therefore place Gaussian priors over all fixed-effect coefficients for factors with mean zero (i.e. our \textit{a priori} expectation is for no effect), standard deviation 2 (indicating a weak implausibility of large coefficients).
 These are therefore weak, but not flat (uniform) prior distributions.
@@ -774,9 +1294,9 @@ As we see above, the model provides a good fit to the data, but the reader shoul
 
 We estimate the posterior distribution over model parameters using a Markov Chain Monte Carlo (MCMC) procedure implemented in the Stan language \citep[version 2.15.1;][]{standevelopmentteam_stan_2015, hoffman_nouturn_2014}, using the model wrapper package \texttt{brms} \citep[version 1.7.0;][]{burkner_brms:_????-1} in the R statistical environment.
 The \texttt{brms} package allows the specification of flexible mixed-effects Stan models using formula syntax similar to the popular \texttt{lme4} package \citep{bates_fitting_2015}.
-Samples were drawn using the NUTS sampling algorithm \citep{hoffman_nouturn_2014} with 6 independent chains, each sampled with 30000 samples of which 10000 were used to adaptively tune the sampler (warmup).
-To reduce the final file size we saved every 6th sample.
-This procedure resulted in a final total of 20000 post-warmup samples.
+Samples were drawn using the \Sexpr{algorithm} sampling algorithm \citep{hoffman_nouturn_2014} with \Sexpr{n_chains} independent chains, each sampled with \Sexpr{samples} samples of which \Sexpr{warmup} were used to adaptively tune the sampler (warmup).
+To reduce the final file size we saved every \Sexpr{thin}th sample.
+This procedure resulted in a final total of \Sexpr{final_samples} post-warmup samples.
 Chain convergence was assessed using the $\hat R$ statistic \citep{gelman_inference_1992} and visual inspection of traceplots.
 Readers are encouraged to consult the online code for further details.
 
@@ -803,7 +1323,105 @@ We report differences between models and their standard errors on the deviance s
 
 \subsubsection{Experiment 1}
 
+<<model_linpred_estimates, echo=FALSE, cache=TRUE>>=
 
+fe_samples <- posterior_samples(fit_1, pars = "^b")  # extract fixed effect samples.
+
+# the pres cond with sum coding is half the linear predictor difference between conditions (i.e. double to get full difference -- see expt_11_test_contrast_coding.Rmd). With inspection coded as -1, parafoveal as 1, a positive value gives parafoveal > inspection. Flip sign by multiplying by -2:
+pres_cond_ests <- compute_CIs(fe_samples$b_presentation_cond1 * -2)
+
+printout_1 = paste0("$\\exp(", round(pres_cond_ests$estimates[2], 2), ") = ",
+       round(exp(pres_cond_ests$estimates[2]), 2), "$")
+
+# with presentation_cond coded as sum, the coefficients for image_model
+# code the mean differences between levels. To get the marginal "simple effects"
+# differences for each level of presentation cond, need to add or subtract the
+# relevant interaction term. See rmd doc "expt_11_test_contrast_coding.Rmd"
+# showing this with simulated data.
+
+# parafoveal (coded 1)
+single_fix_image_2m1 <- fe_samples$b_image_model2M1 + fe_samples$`b_image_model2M1:presentation_cond1`
+single_fix_image_3m2 <- fe_samples$b_image_model3M2  + fe_samples$`b_image_model3M2:presentation_cond1`
+single_fix_image_4m3 <- fe_samples$b_image_model4M3 + fe_samples$`b_image_model4M3:presentation_cond1`
+single_fix_image_5m4 <- fe_samples$b_image_model5M4 + fe_samples$`b_image_model5M4:presentation_cond1`
+single_fix_image_6m5 <- fe_samples$b_image_model6M5 + fe_samples$`b_image_model6M5:presentation_cond1`
+
+# inspection:
+inspection_image_2m1 <- fe_samples$b_image_model2M1 - fe_samples$`b_image_model2M1:presentation_cond1`
+inspection_image_3m2 <- fe_samples$b_image_model3M2 - fe_samples$`b_image_model3M2:presentation_cond1`
+inspection_image_4m3 <- fe_samples$b_image_model4M3 - fe_samples$`b_image_model4M3:presentation_cond1`
+inspection_image_5m4 <- fe_samples$b_image_model5M4 - fe_samples$`b_image_model5M4:presentation_cond1`
+inspection_image_6m5 <- fe_samples$b_image_model6M5 - fe_samples$`b_image_model6M5:presentation_cond1`
+
+
+# Effect size estimates -----------------------------
+# need to add the variance components that contribute to the mean difference. That is, images 
+# and subjects.
+var_samples <- posterior_samples(fit_1, pars = "^sd")
+# convert all vals from sd to var:
+var_samples <- as.data.frame(var_samples^2)
+
+# EF = mean difference / sqrt(var_subj + var_images)
+
+# pres cond EF:
+pres_cond_ef <- fe_samples$b_presentation_cond1 / 
+  sqrt(var_samples$sd_subj__presentation_cond1 + 
+         var_samples$sd_image_code__presentation_cond1)
+
+
+## OLD, when I used treatment coding. Needs to be updated for sum!
+# # parafoveal
+# single_fix_image_2m1_ef <- fe_samples$b_image_model2M1 / 
+#   sqrt(var_samples$sd_subj__image_model2M1 + 
+#          var_samples$sd_image_code__image_model2M1)
+# single_fix_image_3m2_ef <- fe_samples$b_image_model3M2 / 
+#   sqrt(var_samples$sd_subj__image_model3M2 + 
+#          var_samples$sd_image_code__image_model3M2)
+# single_fix_image_4m3_ef <- fe_samples$b_image_model4M3 / 
+#   sqrt(var_samples$sd_subj__image_model4M3 + 
+#          var_samples$sd_image_code__image_model4M3)
+# single_fix_image_5m4_ef <- fe_samples$b_image_model5M4 / 
+#   sqrt(var_samples$sd_subj__image_model5M4 + 
+#          var_samples$sd_image_code__image_model5M4)
+# single_fix_image_6m5_ef <- fe_samples$b_image_model6M5 / 
+#   sqrt(var_samples$sd_subj__image_model6M5 + 
+#          var_samples$sd_image_code__image_model6M5)
+# 
+# # inspection:
+# inspection_image_2m1_ef <- (fe_samples$b_image_model2M1 + 
+#                               fe_samples$`b_image_model2M1:presentation_cond2`) /
+#   sqrt(var_samples$sd_subj__image_model2M1 + 
+#          var_samples$`sd_subj__image_model2M1:presentation_cond2` + 
+#          var_samples$sd_image_code__image_model2M1 + 
+#          var_samples$`sd_image_code__image_model2M1:presentation_cond2`)
+# 
+# inspection_image_3m2_ef <- (fe_samples$b_image_model3M2 + 
+#                               fe_samples$`b_image_model3M2:presentation_cond2`) /
+#   sqrt(var_samples$sd_subj__image_model3M2 + 
+#          var_samples$`sd_subj__image_model3M2:presentation_cond2` + 
+#          var_samples$sd_image_code__image_model3M2 + 
+#          var_samples$`sd_image_code__image_model3M2:presentation_cond2`)
+# inspection_image_4m3_ef <- (fe_samples$b_image_model4M3 + 
+#                               fe_samples$`b_image_model4M3:presentation_cond2`) /
+#   sqrt(var_samples$sd_subj__image_model4M3 + 
+#          var_samples$`sd_subj__image_model4M3:presentation_cond2` + 
+#          var_samples$sd_image_code__image_model4M3 + 
+#          var_samples$`sd_image_code__image_model4M3:presentation_cond2`)
+# inspection_image_5m4_ef <- (fe_samples$b_image_model5M4 + 
+#                               fe_samples$`b_image_model5M4:presentation_cond2`) /
+#   sqrt(var_samples$sd_subj__image_model5M4 + 
+#          var_samples$`sd_subj__image_model5M4:presentation_cond2` + 
+#          var_samples$sd_image_code__image_model5M4 + 
+#          var_samples$`sd_image_code__image_model5M4:presentation_cond2`)
+# inspection_image_6m5_ef <- (fe_samples$b_image_model6M5 + 
+#                               fe_samples$`b_image_model6M5:presentation_cond2`) /
+#   sqrt(var_samples$sd_subj__image_model6M5 + 
+#          var_samples$`sd_subj__image_model6M5:presentation_cond2` + 
+#          var_samples$sd_image_code__image_model6M5 + 
+#          var_samples$`sd_image_code__image_model6M5:presentation_cond2`)
+
+## EDIT: decided not to include these effect sizes because I'm not sure about the covariance components (see Westfall et al, 2014, Appendix). So, I'll leave it for now.
+@
 
 Figure \ref{fig:expt-1-summary} shows model predictions for both individual observers (authors CF and TW) and for the average of the na\"{i}ve observers.
 For the individual observer model estimates (CF and TW) we show the model prediction conditioned on observer. 
@@ -814,70 +1432,79 @@ Note that the model uncertainties shown in Figure \ref{fig:expt-1-summary} depic
 
 To quantify the differences between conditions more appropriately we examine the mixed-effects model coefficients. 
 First, we quantify the performance difference between the inspection and parafoveal conditions, marginalising over image models and all random effects variance.
-The posterior median of the difference between these conditions on the linear predictor scale is 1.23. % multiply by -2 to get full difference, with inspection above.
-Considering the exponent of this value as log odds, this means that correct trials are $\exp(1.23) = 3.41$ times more likely under the inspection condition than the parafoveal condition, if all other effects are held at zero.
+The posterior median of the difference between these conditions on the linear predictor scale is \Sexpr{round(compute_CIs(fe_samples$b_presentation_cond1 * -2)$estimates[2], 2)}. % multiply by -2 to get full difference, with inspection above.
+Considering the exponent of this value as log odds, this means that correct trials are \Sexpr{printout_1} times more likely under the inspection condition than the parafoveal condition, if all other effects are held at zero.
 In other words, for every 10 correct responses in the parafoveal condition we expect about 34 correct responses in the inspection condition, on average.
 The 95\% credible interval tells us to believe that the difference has a 95\% probability (conditioned on the data, model and prior) of lying between 
-0.65 and
-1.82.
+\Sexpr{round(compute_CIs(fe_samples$b_presentation_cond1 * -2)$estimates[1], 2)} and
+\Sexpr{round(compute_CIs(fe_samples$b_presentation_cond1 * -2)$estimates[3], 2)}.
 To indicate the likely sign of an effect we report the posterior probability that the coefficient is negative (if this value is small, the coefficient is likely positive; if the value is 0.5 then the coefficient is equally likely to be positive or negative).
 The inspection condition is very likely to elicit higher performance than the parafoveal condition, because the coefficient coding their difference has only a small probability of being negative ($\mathrm{p}(\beta < 0) = $ 
-9.998e-05).
+\Sexpr{format(compute_CIs(fe_samples$b_presentation_cond1 * -2)$p_less_zero, scientific = TRUE)}).
 %Finally, as a test of the point-null hypothesis that there is no effect, we report the Savage-Dickey approximation to the Bayes factor \citep{wagenmakers_bayesian_2010}, which in this case quantifies how much more we should believe that some model parameter equals zero, after seeing the data.
 %Specifically, this is the ratio of posterior to prior density at $\beta = 0$.
 %For the difference between presentation conditions, this value is
-%round(hypothesis(fit_1, "presentation_cond2 = 0")$hypothesis$Evid.Ratio, 2), indicating that the posterior density at zero is much smaller than the prior density (offering evidence against the null).
+%\Sexpr{round(hypothesis(fit_1, "presentation_cond2 = 0")$hypothesis$Evid.Ratio, 2)}, indicating that the posterior density at zero is much smaller than the prior density (offering evidence against the null).
 %Values greater than one denote evidence \textit{for} the point null, because our belief in the plausibility of the null has increased after seeing the data.
 %While the Bayes factor approximation can provide a useful additional quantification of evidence, note that unlike the posterior parameter estimates themselves this value strongly depends on the prior.
 To make future quantifications more concise, for the remainder of this section we report them as 
-($\beta = $ 1.23, 95\% CI = [0.65, 1.82], $\mathrm{p}(\beta < 0) < $ 0.001).
+(\Sexpr{print_CIs(fe_samples$b_presentation_cond1 * -2)}).
 
 Next, we examine whether the differences between image models depended on the presentation condition.
 An interaction is clearly evident in Figure \ref{fig:expt-1-summary}.
 This subjective impression was supported by a model comparison between a linear and an interaction model using a measure of each model's ability to generalise to new data (the LOOIC; the interaction model had a lower LOOIC by
-294 (SE = 33)).
+\Sexpr{round(2 * compare(loo_additive_1, loo_1)[1], 0)} (SE = \Sexpr{round(2 * compare(loo_additive_1, loo_1)[2], 0)})).
 We therefore further consider the differences between image models conditioned on the presentation condition.
 
 % parafoveal data.
 For the parafoveal condition, image models above conv2 and also the PS model produced performance at approximately chance level (see below).
 Our model quantifies the sequential differences between the models, with the coefficients coding the difference between two models on the linear predictor scale.
 Performance in conv2 was worse than conv1
-($\beta = $ -1.35, 95\% CI = [-1.94, -0.78], $\mathrm{p}(\beta < 0) > $ 0.999),
+(\Sexpr{print_CIs(single_fix_image_2m1, fit_1, "image_model2M1 = 0")}),
 and conv3 was worse than conv2
-($\beta = $ -0.26, 95\% CI = [-0.58, 0.06], $\mathrm{p}(\beta < 0) = $ 0.947).
+(\Sexpr{print_CIs(single_fix_image_3m2, fit_1, "image_model3M2 = 0")}).
 However, because performance was now approximately at chance, there was no evidence that conv4 was different to conv3
-($\beta = $ 0, 95\% CI = [-0.26, 0.29], $\mathrm{p}(\beta < 0) = $ 0.487)
+(\Sexpr{print_CIs(single_fix_image_4m3, fit_1, "image_model4M3 = 0")})
 or that conv5 was different to conv4
-($\beta = $ -0.02, 95\% CI = [-0.25, 0.21], $\mathrm{p}(\beta < 0) = $ 0.561).
+(\Sexpr{print_CIs(single_fix_image_5m4, fit_1, "image_model5M4 = 0")}).
 Similarly, the PS model was also not different to conv5
-($\beta = $ -0.01, 95\% CI = [-0.51, 0.52], $\mathrm{p}(\beta < 0) = $ 0.508).
+(\Sexpr{print_CIs(single_fix_image_6m5, fit_1, "image_model6M5 = 0")}).
 
 % inspection data
 The inspection condition showed similar results as the parafoveal condition with two exceptions: first, performance remained approximately above chance, and psychophysical performance was better for the PS model than the conv5 model (i.e. synthesised and natural textures were easier to discriminate).
 The conv2 model produced worse performance than conv1
-($\beta = $ -3.08, 95\% CI = [-3.87, -2.32], $\mathrm{p}(\beta < 0) > $ 0.999) and
+(\Sexpr{print_CIs(inspection_image_2m1, fit_1, "image_model2M1 + image_model2M1:presentation_cond1 = 0")}) and
 conv3 produced worse performance than conv2
-($\beta = $ -0.62, 95\% CI = [-0.98, -0.26], $\mathrm{p}(\beta < 0) = $ 0.999).
+(\Sexpr{print_CIs(inspection_image_3m2, fit_1, "image_model3M2 + image_model3M2:presentation_cond1 = 0")}).
 Conv4 produced worse performance than conv3 in that the coefficient coding their difference was likely to be negative
-($\beta = $ -0.38, 95\% CI = [-0.68, -0.09], $\mathrm{p}(\beta < 0) = $ 0.995).
+(\Sexpr{print_CIs(inspection_image_4m3, fit_1, "image_model4M3 + image_model4M3:presentation_cond1 = 0")}).
 Performance for the conv5 model was approximately equal to conv4
-($\beta = $ 0.19, 95\% CI = [-0.05, 0.43], $\mathrm{p}(\beta < 0) = $ 0.056).
+(\Sexpr{print_CIs(inspection_image_5m4, fit_1, "image_model5M4 + image_model5M4:presentation_cond1 = 0")}).
 Finally, there was weak evidence that PS model produced better psychophysical performance than the conv5 model when observers could inspect the images
-($\beta = $ 0.82, 95\% CI = [0.09, 1.54], $\mathrm{p}(\beta < 0) = $ 0.014).
+(\Sexpr{print_CIs(inspection_image_6m5, fit_1, "image_model6M5 + image_model6M5:presentation_cond1 = 0")}).
 
 % the biggest contrast:
 To summarise, the two most important characteristics of these data are first, that psychophysical performance is effectively at chance for the parafoveal condition for the conv4, conv5 and PS models.
 Second, under inspection the PS model produces poorer matches to appearance (better psychophysical performance) than the conv5 and conv4 CNN texture models.
 Taken together, the data show that the PS model features are sufficient to capture the appearance of natural textures under brief, parafoveal viewing conditions, but that the increased complexity of the CNN model features improves appearance-matching performance under inspection.
 
+<<compute_re_ratios, echo=FALSE, cache=TRUE>>=
+re_samples <- posterior_samples(fit_1, pars = "^sd")  # extract random effects SDs.
+half <- ncol(re_samples) / 2
+ratios <- re_samples[, 1:half] / re_samples[, (half+1):ncol(re_samples)]  # image code SDs / subj SDs
 
+estimates <- sapply(ratios, median)  # median for each sd estimate
+
+# Variance associated with dependence of PS and conv5 diff under presentation condition:
+ratio_6M5 <- re_samples$`sd_image_code__image_model6M5` / re_samples$`sd_subj__image_model6M5`
+@
 
 The attentive reader may wonder why the model's uncertainty estimates in Figure \ref{fig:expt-1-summary} are so large relative to the confidence intervals on the data (particularly in the author plots, which are quite precisely measured).
 We believe this highlights a particular strength of mixed modelling for psychophysical data \citep{cheung_nonlinear_2008,knoblauch_modeling_2012,moscatelli_modeling_2012}: multiple sources of variability can be accounted for and incorporated into predictions at various levels (e.g. the observer and image level, or the subject level ignoring images, or the population level).
 In this case, averaging over the images and displaying credible intervals that ignore the pairwise experimental design (as in Figure \ref{fig:expt-1-summary}) disguises the fact that different images show distinctly different effects of image model and presentation time.
 For example, for each fixed effect coefficient we can ask whether more variance in the data is caused by variation over observers or images.
-On average, the variance associated with images is 2.1 times greater than that associated with observers.
-The linear predictor difference between PS and conv5 averaged over presentation condition is associated with about 3.3 times more variance from images than from observers.
+On average, the variance associated with images is \Sexpr{round(median(estimates), 1)} times greater than that associated with observers.
+The linear predictor difference between PS and conv5 averaged over presentation condition is associated with about \Sexpr{round(median(ratio_6M5), 1)} times more variance from images than from observers.
 That is, this difference tends to depend strongly on the image (Figure \ref{fig:expt-1-images}).
 The model uncertainties in Figure \ref{fig:expt-1-summary} are large because the ``average'' or population-level behaviour is uncertain in light of this; indeed, it may make little sense to talk about a ``population-level'' over images from these data.
 In contrast, Figure \ref{fig:expt-1-images} shows model estimates that are far more constrained relative to Figure \ref{fig:expt-1-summary}, because the uncertainty in the estimates now reflects between-subject variability rather than between-image variability.
@@ -890,81 +1517,213 @@ Conditions that lie above the dashed horizontal line are those for which we can 
 These dashed lines are provided as a guide rather than to encourage dichotomous decision making about ``different or not''.
 The posterior probabilities confirm, in general, our qualitative statements made in the manuscript (Figure \ref{fig:prob-sensitive-1}).
 
+<<cap_prob-sensitive-1, echo=FALSE>>=
+cap <- paste0("Posterior probability that performance for discriminating each image and image model in Experiment 1 lies above chance.
+              Conditions falling above the dashed horizontal line at $0.95$ have a greater than 95\\% 
+              probability of being discriminable, conditions falling below the dashed horizontal line at $0.05$ are more than 95\\% likely to be below-chance.
+              Conditions for which the model predicts exactly chance performance would fall at 0.5.") 
+@
 
 
+<<prob-sensitive-1, echo=FALSE, cache=TRUE, fig.width=fig_width_2_col, fig.height=4.5, fig.cap=cap, fig.env="figure*">>=
 
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{figure*}
-\includegraphics[width=\maxwidth]{figure/prob-sensitive-1-1} \caption[Posterior probability that performance for discriminating each image and image model in Experiment 1 lies above chance.
-              Conditions falling above the dashed horizontal line at $0.95$ have a greater than 95\% 
-              probability of being discriminable, conditions falling below the dashed horizontal line at $0.05$ are more than 95\% likely to be below-chance.
-              Conditions for which the model predicts exactly chance performance would fall at 0.5]{Posterior probability that performance for discriminating each image and image model in Experiment 1 lies above chance.
-              Conditions falling above the dashed horizontal line at $0.95$ have a greater than 95\% 
-              probability of being discriminable, conditions falling below the dashed horizontal line at $0.05$ are more than 95\% likely to be below-chance.
-              Conditions for which the model predicts exactly chance performance would fall at 0.5.}\label{fig:prob-sensitive-1}
-\end{figure*}
+predictions <- expand.grid(image_model = levels(dat_1a$image_model),
+                           presentation_cond = levels(dat_1a$presentation_cond),
+                           image_code = levels(dat_1a$image_code))
+
+# return posterior samples for all conditions. Each col is for one row of predictions.
+blah <- fitted(fit_1, newdata = predictions,
+               scale = "response",
+               re_formula = ~ (image_model * presentation_cond | image_code),
+               summary = FALSE)
 
 
-\end{knitrout}
+compute_P <- function(x){
+  # use ecdf to compute the probability that the coefficient is greater than 1/3:
+  fn <- ecdf(x)
+  
+  # fn computes mass lying below the given value. i.e. fn(0) = 0 and fn(1) = 1.
+  # we want the mass lying above 1/3.
+  # i.e. 1 - fn(1/3)
+  return(1 - fn(1/3))  
+}
+
+p <- apply(blah, 2, compute_P)
+predictions$p <- p
+
+# need to include image code for plotting:
+predictions$image_name <- predictions$image_code
+predictions$image_name <- revalue(predictions$image_name, 
+                                  c("BrickRound0043_1_S" = "Bricks", 
+                                    "Carpet0047_1_S" = "Carpet",
+                                    "Crackles0004_1_S" = "Cracks",
+                                    "FlowerBeds0044_1_S" = "Flowers",
+                                    "FoodVarious0001_1_S" = "Candy",
+                                    "GrassDead0131_1_S" = "Grass",
+                                    "Gravel0097_1_S" = "Gravel",
+                                    "MetalFloorsBare0024_1_S" = "Metal",
+                                    "PaperCrumpled0004_1_S" = "Paper",
+                                    "RooftilesCeramic0037_1_S" = "Tiles",
+                                    "Scrapyard0033_1_S" = "Scrap",
+                                    "Vegetables0024_1_S" = "Beans"))  
+
+# reorder panels of images to put consistent results together:
+predictions$image_name <- factor(predictions$image_name, c(
+  "Beans",
+  "Bricks",  
+  "Flowers",
+  "Grass",
+  "Scrap",
+  "Carpet",
+  "Cracks",
+  "Gravel",
+  "Paper",
+  "Candy",
+  "Metal",
+  "Tiles"  
+))
+
+plt <- ggplot(predictions, aes(x = image_model, y = p,
+                               shape = presentation_cond,
+                               colour = presentation_cond)) + 
+  geom_hline(yintercept = 0.95, linetype = "dashed") +
+  geom_hline(yintercept = 0.05, linetype = "dashed") +
+  facet_wrap(~ image_name) + 
+  geom_point() + geom_line(aes(group = presentation_cond))
+
+plt <- plt + 
+  coord_cartesian(ylim = c(0, 1)) +
+  scale_y_continuous(name = "Posterior probability of performance > chance", breaks = c(0, .5, 1)) +
+  xlab("Image model")
+
+# fix scales:
+plt <- plt + scale_colour_fivethirtyeight(name = "")
+plt <- plt + scale_fill_fivethirtyeight(name = "")
+plt <- plt + scale_shape(name = "")
+plt <- plot_theme(plt) + theme(legend.position = "top") + 
+  theme(axis.text = element_text(size = 6))
+plt
+
+@
 
 
 \subsubsection{Experiment 2}
 
+<<model_linpred_estimates_2, echo=FALSE, cache=TRUE>>=
+fe_samples_2 <- posterior_samples(fit_2, pars = "^b")  # extract fixed effect samples.
 
+# with presentation_cond coded as sum, the coefficients for image_model
+# code the mean differences between levels. To get the marginal "simple effects"
+# differences for each level of presentation cond, need to add or subtract the
+# relevant interaction term. See rmd doc "expt_11_test_contrast_coding.Rmd"
+# showing this with simulated data.
+
+# parafoveal (coded 1)
+single_fix_image_2m1_2 <- fe_samples_2$b_image_model2M1 + fe_samples_2$`b_image_model2M1:presentation_cond1`
+single_fix_image_3m2_2 <- fe_samples_2$b_image_model3M2 + fe_samples_2$`b_image_model3M2:presentation_cond1` 
+
+# inspection (coded -1)
+inspection_image_2m1_2 <- fe_samples_2$b_image_model2M1 - fe_samples_2$`b_image_model2M1:presentation_cond1`
+inspection_image_3m2_2 <- fe_samples_2$b_image_model3M2 - fe_samples_2$`b_image_model3M2:presentation_cond1` 
+@
 
 The results of Experiment 2 for the conv5 and PS models replicate the results of Experiment 1. 
 When stimuli are presented briefly to the parafovea, observers are effectively at chance to discriminate both conv5 and PS from the original textures, and there was evidence that the models did not differ
-($\beta = $ 0.15, 95\% CI = [-0.4, 0.71], $\mathrm{p}(\beta < 0) = $ 0.275), 
+(\Sexpr{print_CIs(single_fix_image_2m1_2, fit_2, "image_model2M1 = 0")}), 
 whereas under inspection the PS model was easier to discriminate from the original images than the conv5 model
-($\beta = $ 1.45, 95\% CI = [0.48, 2.41], $\mathrm{p}(\beta < 0) = $ 0.003).
+(\Sexpr{print_CIs(inspection_image_2m1_2, fit_2, "image_model2M1 + image_model2M1:presentation_cond2 = 0")}).
 Additionally matching the powerspectrum (``powerspec'' model) produced similarly indistinguishable performance from the PS model in the parafovea
-($\beta = $ -0.13, 95\% CI = [-0.63, 0.36], $\mathrm{p}(\beta < 0) = $ 0.712),
+(\Sexpr{print_CIs(single_fix_image_3m2_2, fit_2, "image_model3M2 = 0")}),
 but better performance than the PS model under inspection
-($\beta = $ -1.64, 95\% CI = [-2.35, -0.95], $\mathrm{p}(\beta < 0) > $ 0.999).
+(\Sexpr{print_CIs(inspection_image_3m2_2, fit_2, "image_model3M2 + image_model3M2:presentation_cond2 = 0")}).
 
 Posterior probabilities that performance lies above chance for each image and viewing condition are shown in Figure \ref{fig:prob-sensitive-2}. 
 As for Experiment 1, these values generally support our qualitative statements made in the manuscript.
 
+<<cap_prob-sensitive-2, echo=FALSE>>=
+cap <- paste0("Posterior probability that performance for each image in Experiment 2 lies above chance.
+              Plot elements as in Figure \\ref{fig:prob-sensitive-1}.") 
+@
 
 
+<<prob-sensitive-2, echo=FALSE, cache=TRUE, fig.width=fig_width_2_col, fig.height=4.5, fig.cap=cap, fig.env="figure*">>=
 
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{figure*}
-\includegraphics[width=\maxwidth]{figure/prob-sensitive-2-1} \caption{Posterior probability that performance for each image in Experiment 2 lies above chance.
-              Plot elements as in Figure \ref{fig:prob-sensitive-1}.}\label{fig:prob-sensitive-2}
-\end{figure*}
+predictions <- expand.grid(image_model = levels(dat_2$image_model),
+                           presentation_cond = levels(dat_2$presentation_cond),
+                           image_code = levels(dat_2$image_code))
 
-
-\end{knitrout}
-
-% \subsection{Individual observer data}
-
-
+# return posterior samples for all conditions. Each col is for one row of predictions.
+blah <- fitted(fit_2, newdata = predictions,
+               scale = "response",
+               re_formula = ~ (image_model * presentation_cond | image_code),
+               summary = FALSE)
 
 
+compute_P <- function(x){
+  # use ecdf to compute the probability that the coefficient is greater than 1/3:
+  fn <- ecdf(x)
+  
+  # fn computes mass lying below the given value. i.e. fn(0) = 0 and fn(1) = 1.
+  # we want the mass lying above 1/3.
+  # i.e. 1 - fn(1/3)
+  return(1 - fn(1/3))  
+}
 
+p <- apply(blah, 2, compute_P)
+predictions$p <- p
 
+# need to include image code for plotting:
+predictions$image_name <- predictions$image_code
+predictions$image_name <- revalue(predictions$image_name, 
+                                  c("BrickRound0043_1_S" = "Bricks", 
+                                    "Carpet0047_1_S" = "Carpet",
+                                    "Crackles0004_1_S" = "Cracks",
+                                    "FlowerBeds0044_1_S" = "Flowers",
+                                    "FoodVarious0001_1_S" = "Candy",
+                                    "GrassDead0131_1_S" = "Grass",
+                                    "Gravel0097_1_S" = "Gravel",
+                                    "MetalFloorsBare0024_1_S" = "Metal",
+                                    "PaperCrumpled0004_1_S" = "Paper",
+                                    "RooftilesCeramic0037_1_S" = "Tiles",
+                                    "Scrapyard0033_1_S" = "Scrap",
+                                    "Vegetables0024_1_S" = "Beans"))  
 
+# reorder panels of images to put consistent results together:
+predictions$image_name <- factor(predictions$image_name, c(
+  "Beans",
+  "Bricks",  
+  "Flowers",
+  "Grass",
+  "Scrap",
+  "Carpet",
+  "Cracks",
+  "Gravel",
+  "Paper",
+  "Candy",
+  "Metal",
+  "Tiles"  
+))
 
+plt <- ggplot(predictions, aes(x = image_model, y = p, 
+                               shape = presentation_cond,
+                               colour = presentation_cond)) + 
+  geom_hline(yintercept = 0.95, linetype = "dashed") +
+  geom_hline(yintercept = 0.05, linetype = "dashed") +
+  facet_wrap(~ image_name) + 
+  geom_point() + geom_line(aes(group = presentation_cond))
 
+plt <- plt + coord_cartesian(ylim = c(0, 1)) +
+  scale_y_continuous(name = "Posterior probability of performance > chance", breaks = c(0, .5, 1)) +
+  xlab("Image model")
 
+# fix scales:
+plt <- plt + scale_colour_fivethirtyeight(name = "")
+plt <- plt + scale_fill_fivethirtyeight(name = "")
+plt <- plt + scale_shape(name = "")
+plt <- plot_theme(plt) + theme(legend.position = "top")
+plt
 
-% The performance of individual na\"{i}ve subjects from Experiment 1 is shown in Figure \ref{fig:expt-1b-images}.
-% The poor constraint at the individual subject level is evident in the plot: each data point for each subject represents only five trials.
-% This limits the amount we can infer about individual subjects, but their data help to constrain the population-level estimates.
-% 
-% In contrast, authors CF and TW are measured comparatively precisely. 
-% We visualise the model predictions for one of these observers (TW) for all images below (Figure \ref{fig:expt-1-tw}.
-% Note that the model uncertainty is much smaller compared to that in Figure \ref{fig:expt-1-summary}, because of the heterogeneity of the results for individual images.
-% The model nevertheless provides quite reasonable fits to data at the individual (subject, image) level.
-% This highlights one advantage of using mixed models for psychophysical data \citep{cheung_nonlinear_2008,knoblauch_modeling_2012,moscatelli_modeling_2012}: multiple sources of variability can be accounted for and incorporated into predictions at various levels (e.g. the subject + image level, or the subject level ignoring images, or the population level).
-
-
-
-
-
-
-
+@
 
 \subsection{Performance as a function of oddball type}
 
@@ -990,42 +1749,101 @@ Other, not mutually-exclusive, possibilities include that observers are influenc
 Whatever the cause(s) of the oddball differences we observe, note that traditional observer models for the oddity paradigm assume both unbiased responding and that the stimulus classes have equal variance \citep[][p. 235]{macmillan_detection_2005}; thus, computing $d^\prime$ from our data with the intention of comparing sensitivity to other paradigms should be performed cautiously or with a model explicitly including bias / variance terms for each trial type.
 
 
+<<cap-oddball-performance-average, echo=FALSE, cache=TRUE>>=
+cap <- "Performance in Experiment 1 according to whether the oddball image was an original or a model synthesis (``synth''), averaging over
+images. Points show grand mean across observer means, error bars show SEM."
+@
+
+<<oddball-performance-average, echo=FALSE, cache=TRUE, fig.width=fig_width_2_col, fig.height=3.5, fig.cap=cap, fig.env="figure*", warning=FALSE>>=
+av_dat <- dat_1 %>%
+  group_by(subj, image_model, oddball, presentation_cond) %>% 
+  summarise(pc = mean(correct))
+
+plt <- ggplot(av_dat, aes(x = image_model, y = pc,
+                         shape = oddball,
+                         colour = oddball)) + 
+  geom_hline(yintercept = 1/3, linetype = "dashed") + 
+  facet_wrap(~ presentation_cond, ncol = 2)
+
+plt <- plt + stat_summary(fun.data = "mean_cl_boot")
+
+# fix scales:
+plt <- plt + coord_cartesian(ylim = c(0, 1)) +
+  scale_y_continuous(name = "Proportion correct", breaks = c(0, .5, 1)) +  
+  xlab("Image model") + ylab("Proportion correct")
+
+plt <- plt + scale_colour_fivethirtyeight(name = "")
+plt <- plt + scale_shape(name = "")
+plt <- plot_theme(plt) + theme(legend.position = "top") + 
+  theme(axis.text = element_text(size = 6)) 
+plt
+
+@
+
+<<cap-oddball-performance-images-parafoveal, echo=FALSE, cache=TRUE>>=
+cap <- "Parafoveal performance in Experiment 1 according to whether the oddball image was an original or a model synthesis (``synth''), for each image.
+        Points show grand mean across observer means, error bars show SEM."
+@
+
+<<oddball-performance-images-parafoveal, echo=FALSE, cache=TRUE, fig.width=fig_width_2_col, fig.height=4.5, fig.cap=cap, fig.env="figure*", warning=FALSE>>=
+av_dat <- dat_1 %>%
+  filter(presentation_cond == "Parafoveal") %>% 
+  group_by(subj, image_model, oddball, image_name) %>% 
+  summarise(pc = mean(correct))
+
+plt <- ggplot(av_dat, aes(x = image_model, y = pc,
+                         shape = oddball,
+                         colour = oddball)) + 
+  geom_hline(yintercept = 1/3, linetype = "dashed") + 
+  facet_wrap(~ image_name, ncol = 4)
+
+plt <- plt + stat_summary(fun.data = "mean_se")
+
+# fix scales:
+plt <- plt + coord_cartesian(ylim = c(0, 1)) +
+  scale_y_continuous(name = "Proportion correct", breaks = c(0, .5, 1)) +  
+  xlab("Image model") + ylab("Proportion correct")
+
+plt <- plt + scale_colour_fivethirtyeight(name = "")
+plt <- plt + scale_shape(name = "")
+plt <- plot_theme(plt) + theme(legend.position = "top") + 
+  theme(axis.text = element_text(size = 6))
+plt
+
+@
 
 
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{figure*}
-\includegraphics[width=\maxwidth]{figure/oddball-performance-average-1} \caption[Performance in Experiment 1 according to whether the oddball image was an original or a model synthesis (``synth''), averaging over
-images]{Performance in Experiment 1 according to whether the oddball image was an original or a model synthesis (``synth''), averaging over
-images. Points show grand mean across observer means, error bars show SEM.}\label{fig:oddball-performance-average}
-\end{figure*}
+<<cap-oddball-performance-images-inspection, echo=FALSE, cache=TRUE>>=
+cap <- "Inspection performance in Experiment 1 according to whether the oddball image was an original or a model synthesis (``synth''), for each image.
+        Points show grand mean across observer means, error bars show SEM."
+@
 
+<<oddball-performance-images-inspection, echo=FALSE, cache=TRUE, fig.width=fig_width_2_col, fig.height=4.5, fig.cap=cap, fig.env="figure*", warning=FALSE>>=
+av_dat <- dat_1 %>%
+  filter(presentation_cond == "Inspection") %>% 
+  group_by(subj, image_model, oddball, image_name) %>% 
+  summarise(pc = mean(correct))
 
-\end{knitrout}
+plt <- ggplot(av_dat, aes(x = image_model, y = pc,
+                         shape = oddball,
+                         colour = oddball)) + 
+  geom_hline(yintercept = 1/3, linetype = "dashed") + 
+  facet_wrap(~ image_name, ncol = 4)
 
+plt <- plt + stat_summary(fun.data = "mean_se")
 
+# fix scales:
+plt <- plt + coord_cartesian(ylim = c(0, 1)) +
+  scale_y_continuous(name = "Proportion correct", breaks = c(0, .5, 1)) +  
+  xlab("Image model") + ylab("Proportion correct")
 
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{figure*}
-\includegraphics[width=\maxwidth]{figure/oddball-performance-images-parafoveal-1} \caption[Parafoveal performance in Experiment 1 according to whether the oddball image was an original or a model synthesis (``synth''), for each image.
-        Points show grand mean across observer means, error bars show SEM]{Parafoveal performance in Experiment 1 according to whether the oddball image was an original or a model synthesis (``synth''), for each image.
-        Points show grand mean across observer means, error bars show SEM.}\label{fig:oddball-performance-images-parafoveal}
-\end{figure*}
+plt <- plt + scale_colour_fivethirtyeight(name = "")
+plt <- plt + scale_shape(name = "")
+plt <- plot_theme(plt) + theme(legend.position = "top") + 
+  theme(axis.text = element_text(size = 6))
+plt
 
-
-\end{knitrout}
-
-
-
-
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{figure*}
-\includegraphics[width=\maxwidth]{figure/oddball-performance-images-inspection-1} \caption[Inspection performance in Experiment 1 according to whether the oddball image was an original or a model synthesis (``synth''), for each image.
-        Points show grand mean across observer means, error bars show SEM]{Inspection performance in Experiment 1 according to whether the oddball image was an original or a model synthesis (``synth''), for each image.
-        Points show grand mean across observer means, error bars show SEM.}\label{fig:oddball-performance-images-inspection}
-\end{figure*}
-
-
-\end{knitrout}
+@
 
 \begin{figure*}
 \centering
@@ -1042,49 +1860,88 @@ When model syntheses look different to the original and each other, and the orig
 
 \subsection{Loss}
 
+<<load-loss-data, cache=TRUE, echo=FALSE, warning=FALSE>>=
+experiment_num <- 11
 
+# here we load the main data file: 
+results_dir <- file.path(top_dir, "results", paste0("experiment_", experiment_num))
+loss_iter <- read.csv(file.path(results_dir, "loss_iterations_10versions.csv"))
+loss_iter$version <- factor(loss_iter$version)
+
+final_loss <- loss_iter %>% 
+  group_by(model, version) %>% 
+  mutate(final_loss = loss[iteration == max(iteration)]) %>% 
+  summarise(final_loss = mean(final_loss)) %>% 
+  left_join(y = num_params, by = "model")
+
+final_loss$model <- factor(final_loss$model)
+
+final_loss_av <- final_loss %>% 
+  group_by(model) %>% 
+  summarise(final_loss = mean(final_loss))  %>% 
+  left_join(y = num_params, by = "model")
+
+final_loss_av$model <- factor(final_loss_av$model)
+@
 
 For the stimuli used in this study, the CNN texture models conv4, conv5 and powerspec are overcomplete (have more parameters than pixels in the image). 
 Thus the loss of the gradient descent for those models does not converge to zero, but ends in a local minimum.
 Figure \ref{fig:gradient-descent}A shows a typical convergence function, where the gradient descent for conv1 terminates early (after reaching convergence within tolerance) but for more complex models (conv3--conv5) loss appears to find a local minimum, remaining relatively stable after 750 iterations.
-The final loss after 1000 iterations is superlinear (Figure \ref{fig:gradient-descent}B): for example, conv5 has a little less than double the number of parmameters as conv4, but about 23 times higher final loss.
+The final loss after 1000 iterations is superlinear (Figure \ref{fig:gradient-descent}B): for example, conv5 has a little less than double the number of parmameters as conv4, but about \Sexpr{round(final_loss_av$final_loss[final_loss_av$model == "conv5"] / final_loss_av$final_loss[final_loss_av$model == "conv4"], 0)} times higher final loss.
 
 Given that we interleaved ten unique syntheses for each original image within our experiment, it would be interesting to assess whether a correlation exists between the final loss of each synthesis and psychophysical performance.
 A positive correlation between loss and performance would mean that images that show greater difference to the original under the model would also be easier for humans to discriminate.
 Unfortunately however, we did not save the final loss of the images after gradient descent but prior to histogram matching.
 Because histogram matching substantially alters the loss values under the model, including changing the order of syntheses, we are unable to assess a correlation between performance and final loss in this dataset. 
 
+<<cap-gradient-descent, echo=FALSE>>=
+cap <- paste0("\\textbf{a}: Decrease of the loss over iterations on a logarithmic scale for ten syntheses (lines) of one example image (Bricks). Loss for simple models (e.g. conv1) converges to zero whereas for more complex models (conv3, conv4 and conv5) it stabilises in a local minimum.
+              \\textbf{b}: Final loss (logarithmic scale) for the synthesised images in (a) as a function of number of parameters in the model. Points show individual syntheses, lines link means within a model. 
+              Final loss is superlinear in the number of parameters. ")
+@
+
+<<gradient-descent, echo=FALSE, cache=TRUE, fig.width=fig_width_2_col, fig.height=3, fig.cap=cap, fig.env="figure*", warning=FALSE>>=
+
+# examples of gradient descent:
+plt1 <- ggplot(loss_iter, aes(x = iteration, y = loss, 
+                              colour = model)) + 
+  geom_line(aes(group = version:model), alpha = 0.5) +
+  scale_y_log10() +
+  scale_x_continuous(breaks = seq(0, 1000, by = 250)) + 
+  # scale_x_log10(name = "Iteration", breaks = c(1, 10, 100, 1000)) +
+  scale_colour_brewer(name = "", type = "qual", palette = 2)
+plt1 <- plot_theme(plt1) + 
+  labs(x = "Iteration", y = "Loss", title = "a") + 
+  theme(plot.title = element_text(size = 12, face = "bold")) + 
+  theme(legend.position = c(0.55, 0.8),
+        legend.direction = "horizontal",
+        legend.background = element_blank()) +
+  guides(colour = guide_legend(nrow = 2, byrow = TRUE, 
+                               override.aes = list(alpha = 1)))
 
 
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{figure*}
-\includegraphics[width=\maxwidth]{figure/gradient-descent-1} \caption{\textbf{a}: Decrease of the loss over iterations on a logarithmic scale for ten syntheses (lines) of one example image (Bricks). Loss for simple models (e.g. conv1) converges to zero whereas for more complex models (conv3, conv4 and conv5) it stabilises in a local minimum.
-              \textbf{b}: Final loss (logarithmic scale) for the synthesised images in (a) as a function of number of parameters in the model. Points show individual syntheses, lines link means within a model. 
-              Final loss is superlinear in the number of parameters. }\label{fig:gradient-descent}
-\end{figure*}
+# final loss against number of params:
+plt2 <- ggplot(final_loss, aes(x = thousand_params, y = final_loss), 
+               colour = model) + 
+  geom_point(aes(group = version:model, colour = model), alpha = 0.5) + 
+  geom_line(data = final_loss_av) +
+  scale_y_log10(breaks = c(1, 10, 100, 1000, 5000)) +
+  # scale_x_log10(name = "Iteration", breaks = c(1, 10, 100, 1000)) +
+  scale_colour_brewer(name = "", type = "qual", palette = 2)
 
+plt2 <- plot_theme(plt2) + 
+  labs(x = "Number of parameters (thousands)", y = "Final loss", title = "b") + 
+  theme(plot.title = element_text(size = 12, face = "bold")) + 
+  theme(legend.position = c(0.6, 0.2),
+        legend.direction = "horizontal",
+        legend.background = element_blank()) +
+  guides(colour = guide_legend(nrow = 2, byrow = TRUE, 
+                               override.aes = list(alpha = 1)))
 
-\end{knitrout}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+grid.arrange(plt1, plt2, ncol = 2)
+@
 
 \newpage
-\bibliography{../dnn_textures.bib}
+\bibliography{dnn_textures.bib}
 
 \end{document}
