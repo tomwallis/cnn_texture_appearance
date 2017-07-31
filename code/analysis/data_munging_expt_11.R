@@ -2,6 +2,7 @@
 library(plyr)
 library(dplyr)
 library(MASS)
+library(forcats)
 
 experiment_num <- 11
 top_dir <- "~/Dropbox/Projects/dnn_texture_appearance"
@@ -36,6 +37,10 @@ dat <- dat[order(dat$subj, dat$session, dat$trial), ]
 
 # rename levels:
 dat <- rename_stuff_expt_11(dat)
+
+# rename oddball levels:
+dat$oddball <- factor(dat$oddball)
+dat$oddball <- fct_recode(dat$oddball, original = "0", synth = "1")
 
 # merge demographics:
 dat <- insert_demographics_expt_11(dat, top_dir)
@@ -75,5 +80,9 @@ dat$image_model <- C(dat$image_model, contr.sdif)
 dat$presentation_cond <- C(dat$presentation_cond, contr.treatment)
 
 save(dat, file = file.path(out_dir, "final_data.RData"))
+
+# save a second version of the datafile using sdif contrasts for presentation:
+dat$presentation_cond <- C(dat$presentation_cond, contr.sum)
+save(dat, file = file.path(out_dir, "final_data_presentation_sum_code.RData"))
 
 print("Success!")

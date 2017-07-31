@@ -17,7 +17,7 @@ names = {...
 
 Cm = squeeze(mean(mean(C, 2), 3));
 
-figure(3)
+figure
 clf
 hold on
 yl = ylim;

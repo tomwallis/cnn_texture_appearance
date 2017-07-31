@@ -1,4 +1,3 @@
-
 % Alex Ecker wrote it. Tom modified some file paths.
 
 [folder, ~] = fileparts(mfilename('fullpath'));
@@ -19,16 +18,11 @@ image_size = 256;
 crop_size = 128;
 c = crop_size / 2;
 num_crops = 10;
-crop = crop_size : image_size;
 
 min_offset_orig = 32;
-idx_orig = zeros(image_size + crop_size - 1);
-crop_orig = crop_size - 32 : image_size + 32;
-idx_orig(crop_orig, crop_orig) = 1;
-ctr = (image_size + crop_size) / 2 + (-min_offset_orig : min_offset_orig);
+idx_orig = ones(image_size - crop_size + 1);
+ctr = (image_size - crop_size) / 2 + 1 + (-min_offset_orig : min_offset_orig);
 idx_orig(ctr, ctr) = 0;
-
-vec = @(x) reshape(x, [], 1);
 
 C = zeros(num_files, num_synth, num_crops+1, num_models);
 Corig = zeros(num_files, 1);
@@ -40,7 +34,9 @@ for ifile = 1 : num_files
     % load original
     orig = round(double(imread(fullfile(originals_folder, files(ifile).name))) / 256);
     
-    Ci = crosscorr(orig, orig(c+1 : end-c, c+1 : end-c));
+    ctr = image_size / 2;
+    orig_center_crop = orig(ctr-c+1 : ctr+c, ctr-c+1 : ctr+c);
+    Ci = crosscorrcoef(orig, orig_center_crop);
     Corig(ifile) = max(Ci(idx_orig > 0));
     
     for imodel = 1 : num_models
@@ -54,12 +50,14 @@ for ifile = 1 : num_files
             if mean(synth(:)) > 256
                 synth = round(synth / 256);
             end
-            Ci = crosscorr(orig, synth(c+1 : end-c, c+1 : end-c));
-            C(ifile, isynth, 1, imodel) = max(vec(Ci(crop, crop)));
+            synth_center_crop = synth(ctr-c+1 : ctr+c, ctr-c+1 : ctr+c);
+            Ci = crosscorrcoef(orig, synth_center_crop);
+            C(ifile, isynth, 1, imodel) = max(Ci(:));
             for icrop = 1 : num_crops
                 ij = fix(rand(1, 2) * (image_size - crop_size));
-                Ci = crosscorr(orig, synth(ij(1)+1 : ij(1)+crop_size, ij(2)+1 : ij(2)+crop_size));
-                C(ifile, isynth, 1+icrop, imodel) = max(vec(Ci(crop, crop)));
+                synth_rand_crop = synth(ij(1)+1 : ij(1)+crop_size, ij(2)+1 : ij(2)+crop_size);
+                Ci = crosscorrcoef(orig, synth_rand_crop);
+                C(ifile, isynth, 1+icrop, imodel) = max(Ci(:));
             end
         end
     end
@@ -67,7 +65,8 @@ end
 fprintf('\n')
 
 %% write csv
-fid = fopen(fullfile(originals_folder, 'data.csv'), 'w');
+Cm = squeeze(mean(mean(C, 2), 3));
+fid = fopen(fullfile(originals_folder, sprintf('data%d.csv', crop_size)), 'w');
 fprintf(fid, repmat('%s, ', 1, num_models), models{:});
 fprintf(fid, 'original\n');
 for i = 1 : num_files

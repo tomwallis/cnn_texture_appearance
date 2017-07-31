@@ -17,12 +17,12 @@ load(file.path(results_dir, "final_data.RData"))
 
 # setup model variables ---------------------------------------------------
 
-chains <- 4
-cores <- 4
+chains <- 6
+cores <- 6
 seed <- 11242375
-iter <- 40000 
-warmup <- 20000
-thin <- 5
+iter <- 30000 
+warmup <- 10000
+thin <- 6
 
 # Full model -----------------------------------------------------------
 
@@ -33,8 +33,9 @@ model_formula <- correct ~ image_model * presentation_cond +
 # get_prior(model_formula, data = dat,
 #           family = bernoulli("logit"))
 
-priors <- c(set_prior("normal(0, 2.5)", class = "b", lb = -5, ub = 5), 
-            set_prior("cauchy(0, 2.5)", class = "sd"))
+priors <- c(set_prior("normal(0, 2)", class = "b"), 
+            set_prior("cauchy(0, 1)", class = "sd"), 
+            set_prior("lkj(2)", class = "cor"))
 
 # make_stancode(model_formula, data = dat,
 #               family = bernoulli("logit"),
@@ -48,7 +49,7 @@ fit <- brm(model_formula, data = dat,
            chains = chains,
            thin = thin,
            cores = cores,
-           sample_prior = TRUE,
+           control = list(adapt_delta = 0.99),           
            save_model = file.path(results_dir, "model_file.stan"))
 
 # do the leave-one-out approximation:
