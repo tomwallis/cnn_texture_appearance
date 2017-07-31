@@ -1,4 +1,4 @@
-\documentclass[doc, 11pt,a4paper,natbib]{apa6}\usepackage[]{graphicx}\usepackage[]{color}
+\documentclass[article, 11pt,a4paper,natbib]{apa6}\usepackage[]{graphicx}\usepackage[]{color}
 %% maxwidth is the original width if it is less than linewidth
 %% otherwise use linewidth (to make sure the graphics do not exceed the margin)
 \makeatletter
@@ -52,7 +52,7 @@
 \usepackage[colorlinks=true,citecolor=black]{hyperref}
 \usepackage{lineno}
 
-\graphicspath{{../../figures/}}
+\graphicspath{{figures/}}
 
 \sixauthors{Thomas S. A. Wallis}{Christina M. Funke}{Alexander S. Ecker}{Leon A. Gatys}{Felix A. Wichmann}{Matthias Bethge}
 \sixaffiliations{
@@ -118,7 +118,7 @@ Correspondence should be addressed to TSAW: thomas.wallis@uni-tuebingen.de
 
 \maketitle
 
-\linenumbers
+% \linenumbers
 
 
 
@@ -142,11 +142,9 @@ Given the importance and ubiquity of visual textures, it is little wonder that t
 % why parameteric texture models?
 Seminal early work on visual texture perception includes that by Gibson \citep{gibson_perception_1950, beck_relation_1955} and by Julesz \citep{julesz_visual_1962,julesz_visual_1978,julesz_textons_1981}. 
 Julesz' thinking remains an important influence on approaches to texture perception, in particular the idea that there exists some set of statistics (parameters in a parametric model) that are both necessary and sufficient for matching the appearance of textures \citep[see also][]{portilla_parametric_2000}. 
-%However, in this paper we will consider the appearance and matching of natural photographic textures rather than the statistics of artificially-generated dot patterns.
 For  computer vision applications, where a goal might be to match the appearance of some region of texture to facilitate image compression, the most effective approaches can be nonparametric---for example, by \textit{quilting} repetitions of a base level crop over the area of the texture \citep[e.g.][]{efros_image_2001}. 
 However, nonparametric approaches have little to teach us about the human visual system because they make no explicit hypotheses about what features are represented.
 In this paper we will therefore focus on parametric texture models.
-% cite tcacik paper???
 
 % analysis / synthesis
 Parameteric models that aim to match the appearance of natural textures are typically assessed by examining artificial textures synthesised by the model \citep{heeger_pyramidbased_1995, safranek_perceptually_1990, safranek_perceptually_1989, zhu_filters_1998, portilla_parametric_2000}. 
@@ -176,10 +174,6 @@ Observers were allowed to view each stimulus array for unlimited time and to fov
 Under these viewing conditions, observers could easily discriminate original natural textures and PS-synthesised images from each other, whether the oddball was real or synthetic (average performance 85--90\%).
 However, when the original images were sourced from abstract artworks rather than photographs of fruits and vegetables, performance for discriminating real from PS-synthesised images was worse and depended on whether the oddball was real or synthesised (with performance around 55\% for the former and 65\% for the latter).
 Together with the results of \citet{balas_texture_2006}, these results suggest that the PS model better captures texture appearance in the periphery than in the fovea, and that the perceptual fidelity of the matching depends on the image or texture type.
-
-% [TODO: probably remove this paragraph] \citet{balas_attentive_2008} had observers sort texture images into groups of similar-looking textures, then examined the ability of three feature spaces (power spectrum, \citet{heeger_pyramidbased_1995} and \citet{portilla_parametric_2000}) to predict the perceptual clusters (posed as a multiclass classification problem).
-% The results showed that all models could classify human decisions better than chance and that the power spectrum model outperformed the other two.
-% While this indicates that the variance in similarity in this task is mostly related to power-spectral similarity, the relative failure of the two texture synthesis spaces may also reflect a paucity of training data, since the power spectrum alone should be predictable from those feature spaces.
 
 Finally, \citet{balas_invariant_2015} assessed whether the influence of illumination change on human texture perception could be captured by PS synthesis.
 Observers performed a match-to-sample task, in which they decided which of two match images depicted the same texture as a previously-presented sample.
@@ -257,7 +251,6 @@ Therefore, differences in psychophysical performance between these conditions ar
 All stimuli, data and code to reproduce the figures and statistics reported in this paper are provided online (Raw data and code at \url{TODO}, stimuli at \url{http://doi.org/10.5281/zenodo.438031}).
 This document was prepared using the \texttt{knitr} package \citep{xie_knitr_2013, xie_dynamic_2015} in the R statistical environment \citep{r_core_development_team_r:_2016,wickham_dplyr:_2016,wickham_ggplot2_2009,wickham_splitapplycombine_2011, auguie_gridextra:_2016, arnold_ggthemes:_2016} to improve its reproducibility.
 
-
 \subsection{Apparatus}
 
 Stimuli were displayed on a VIEWPixx 3D LCD (VPIXX Technologies; spatial resolution $1920 \times 1080$ pixels, temporal resolution 120~Hz, operating with the scanning backlight turned off in high-bitdepth greyscale mode).
@@ -322,8 +315,6 @@ The model uses five pooling and 16 convolutional layers (plus three fully-connec
 The layers are typically labelled with the stack (e.g. ``conv1'' or ``pool1'') with an underscore denoting the sub-layer.
 For example, ``conv1\_1'' refers to the first convolutional layer of the network, whereas ``conv3\_2'' would be the second convolutional layer of the third stack (Figure \ref{fig:vgg}).
 We use a subset of these feature maps for texture synthesis (see below).
-% The pooling operation means that in higher layers the size of the feature maps decreases, whereas the number of feature maps increases. 
-% Conversely, these smaller feature maps correspond to a larger region of the original image (a loose analogy can be made to the increasing size of receptive fields in visual neurons in ascending the ventral hierarchy).
 The code was implemented in Theano using the Lasagne framework, and may be downloaded from \url{https://github.com/leongatys/DeepTextures}.
 The weights of the VGG-19 network are scaled such that the mean activation of each filter over images and positions is equal to 1.
 
@@ -442,7 +433,6 @@ Observer S9 completed 144 trials of the "Inspection" condition before this data 
 They were paid 10~EUR for the one hour session.
 Half the observers saw the parafoveal condition first, whereas the other half performed the inspection condition first.
 All protocols conformed to Standard 8 of the American Psychological Association’s Ethical Principles of Psychologists and Code of Conduct (2010) and to the Declaration of Helsinki (with the exception of article 35 concerning pre-registration in a public database).
-%The raw dataset for this group consisted of nrow(raw_1b) trials; of these, observers failed to respond in nrow(raw_dat[is.na(raw_1b$correct), ]) trials.
 The final dataset consisted of 7200 trials.
 
 \subsection{Results}
@@ -937,35 +927,6 @@ As for Experiment 1, these values generally support our qualitative statements m
 
 \end{knitrout}
 
-% \subsection{Individual observer data}
-
-
-
-
-
-
-
-
-
-
-
-% The performance of individual na\"{i}ve subjects from Experiment 1 is shown in Figure \ref{fig:expt-1b-images}.
-% The poor constraint at the individual subject level is evident in the plot: each data point for each subject represents only five trials.
-% This limits the amount we can infer about individual subjects, but their data help to constrain the population-level estimates.
-% 
-% In contrast, authors CF and TW are measured comparatively precisely. 
-% We visualise the model predictions for one of these observers (TW) for all images below (Figure \ref{fig:expt-1-tw}.
-% Note that the model uncertainty is much smaller compared to that in Figure \ref{fig:expt-1-summary}, because of the heterogeneity of the results for individual images.
-% The model nevertheless provides quite reasonable fits to data at the individual (subject, image) level.
-% This highlights one advantage of using mixed models for psychophysical data \citep{cheung_nonlinear_2008,knoblauch_modeling_2012,moscatelli_modeling_2012}: multiple sources of variability can be accounted for and incorporated into predictions at various levels (e.g. the subject + image level, or the subject level ignoring images, or the population level).
-
-
-
-
-
-
-
-
 \subsection{Performance as a function of oddball type}
 
 Consider that some data points appear to be reliably \textit{below} chance performance (see for example the conv3 model in the Flowers image).
@@ -1066,25 +1027,7 @@ Because histogram matching substantially alters the loss values under the model,
 
 \end{knitrout}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 \newpage
-\bibliography{../dnn_textures.bib}
+\bibliography{dnn_textures.bib}
 
 \end{document}

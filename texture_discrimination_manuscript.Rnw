@@ -1,8 +1,8 @@
-\documentclass[doc, 11pt,a4paper,natbib]{apa6}
+\documentclass[article, 11pt,a4paper,natbib]{apa6}
 \usepackage[colorlinks=true,citecolor=black]{hyperref}
 \usepackage{lineno}
 
-\graphicspath{{../figures/}}
+\graphicspath{{figures/}}
 
 \sixauthors{Thomas S. A. Wallis}{Christina M. Funke}{Alexander S. Ecker}{Leon A. Gatys}{Felix A. Wichmann}{Matthias Bethge}
 \sixaffiliations{
@@ -69,7 +69,7 @@ Correspondence should be addressed to TSAW: thomas.wallis@uni-tuebingen.de
 
 \maketitle
 
-\linenumbers
+% \linenumbers
 
 <<setup, echo=FALSE, results='hide', message=FALSE, warning=FALSE>>=
 library(plyr)
@@ -302,14 +302,7 @@ Therefore, differences in psychophysical performance between these conditions ar
 
 <<load_experiment_1_data, echo=FALSE, cache=TRUE, results='hide'>>=
 
-if (isTRUE(getOption('knitr.in.progress'))){
-  # knitting manuscript:
-  top_dir <- setwd("..")  # knitr wd is where the .Rmd lives. Go up one level
-  setwd()
-} else {
-  # code executed interactively:
-  top_dir <- getwd()  # top directory given by RStudio project
-}
+top_dir <- getwd()  # top directory given by RStudio project
 
 experiment_num <- 11
 
@@ -340,7 +333,6 @@ rm(raw_dat, dat, fit, fit_additive, loo, loo_additive)
 
 All stimuli, data and code to reproduce the figures and statistics reported in this paper are provided online (Raw data and code at \url{TODO}, stimuli at \url{http://doi.org/10.5281/zenodo.438031}).
 This document was prepared using the \texttt{knitr} package \citep{xie_knitr_2013, xie_dynamic_2015} in the R statistical environment \citep{r_core_development_team_r:_2016,wickham_dplyr:_2016,wickham_ggplot2_2009,wickham_splitapplycombine_2011, auguie_gridextra:_2016, arnold_ggthemes:_2016} to improve its reproducibility.
-
 
 \subsection{Apparatus}
 

@@ -1,0 +1,3013 @@
+\begin{thebibliography}{}
+
+\bibitem [\protect \citeauthoryear {%
+Adelson%
+}{%
+Adelson%
+}{%
+{\protect \APACyear {2001}}%
+}]{%
+adelson_seeing_2001}
+\APACinsertmetastar {%
+adelson_seeing_2001}%
+\begin{APACrefauthors}%
+Adelson, E\BPBI H.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2001}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {On Seeing Stuff: The Perception of Materials by Humans
+  and Machines} {On seeing stuff: The perception of materials by humans and
+  machines}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {Photonics {{West}} 2001-Electronic Imaging} {Photonics
+  {{West}} 2001-electronic imaging}\ (\BPGS\ 1--12).
+\newblock
+\APACaddressPublisher{}{{International Society for Optics and Photonics}}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Adelson%
+\ \BBA {} Bergen%
+}{%
+Adelson%
+\ \BBA {} Bergen%
+}{%
+{\protect \APACyear {1991}}%
+}]{%
+adelson_plenoptic_1991}
+\APACinsertmetastar {%
+adelson_plenoptic_1991}%
+\begin{APACrefauthors}%
+Adelson, E\BPBI H.%
+\BCBT {}\ \BBA {} Bergen, J\BPBI R.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1991}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {The Plenoptic Function and the Elements of Early Vision}
+  {The plenoptic function and the elements of early vision}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Computational models of visual processing}{1}{}{3--20}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Agaoglu%
+\ \BBA {} Chung%
+}{%
+Agaoglu%
+\ \BBA {} Chung%
+}{%
+{\protect \APACyear {2016}}%
+}]{%
+agaoglu_can_2016}
+\APACinsertmetastar {%
+agaoglu_can_2016}%
+\begin{APACrefauthors}%
+Agaoglu, M\BPBI N.%
+\BCBT {}\ \BBA {} Chung, S\BPBI T\BPBI L.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2016}{{\APACmonth{12}}}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Can (Should) Theories of Crowding Be Unified?} {Can
+  (should) theories of crowding be unified?}{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Vision}{16}{15}{10}.
+\newblock
+\begin{APACrefDOI} \doi{10.1167/16.15.10} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Arnold%
+}{%
+Arnold%
+}{%
+{\protect \APACyear {2016}}%
+}]{%
+arnold_ggthemes:_2016}
+\APACinsertmetastar {%
+arnold_ggthemes:_2016}%
+\begin{APACrefauthors}%
+Arnold, J\BPBI B.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYear{2016}.
+\newblock
+\APACrefbtitle {Ggthemes: {{Extra Themes}}, {{Scales}} and {{Geoms}} for
+  'Ggplot2'} {Ggthemes: {{Extra Themes}}, {{Scales}} and {{Geoms}} for
+  'ggplot2'}.
+\newblock
+\APACrefnote{R package version 3.0.3}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Auguie%
+}{%
+Auguie%
+}{%
+{\protect \APACyear {2016}}%
+}]{%
+auguie_gridextra:_2016}
+\APACinsertmetastar {%
+auguie_gridextra:_2016}%
+\begin{APACrefauthors}%
+Auguie, B.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYear{2016}.
+\newblock
+\APACrefbtitle {{{gridExtra}}: {{Miscellaneous Functions}} for "{{Grid}}"
+  {{Graphics}}} {{{gridExtra}}: {{Miscellaneous Functions}} for "{{Grid}}"
+  {{Graphics}}}.
+\newblock
+\APACrefnote{R package version 2.2.1}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Baayen%
+, Davidson%
+\BCBL {}\ \BBA {} Bates%
+}{%
+Baayen%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2008}}%
+}]{%
+baayen_mixed-effects_2008}
+\APACinsertmetastar {%
+baayen_mixed-effects_2008}%
+\begin{APACrefauthors}%
+Baayen, R.%
+, Davidson, D.%
+\BCBL {}\ \BBA {} Bates, D.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2008}{{\APACmonth{11}}}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Mixed-Effects Modeling with Crossed Random Effects for
+  Subjects and Items} {Mixed-effects modeling with crossed random effects for
+  subjects and items}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Memory and Language}{59}{4}{390--412}.
+\newblock
+\begin{APACrefDOI} \doi{10.1016/j.jml.2007.12.005} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Balas%
+}{%
+Balas%
+}{%
+{\protect \APACyear {2006}}%
+}]{%
+balas_texture_2006}
+\APACinsertmetastar {%
+balas_texture_2006}%
+\begin{APACrefauthors}%
+Balas, B\BPBI J.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2006}{{\APACmonth{02}}}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Texture Synthesis and Perception: Using Computational
+  Models to Study Texture Representations in the Human Visual System.} {Texture
+  synthesis and perception: Using computational models to study texture
+  representations in the human visual system.}{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Vision research}{46}{3}{299--309}.
+\newblock
+\begin{APACrefDOI} \doi{10.1016/j.visres.2005.04.013} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Balas%
+}{%
+Balas%
+}{%
+{\protect \APACyear {2008}}%
+}]{%
+balas_attentive_2008}
+\APACinsertmetastar {%
+balas_attentive_2008}%
+\begin{APACrefauthors}%
+Balas, B\BPBI J.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2008}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Attentive Texture Similarity as a Categorization Task:
+  {{Comparing}} Texture Synthesis Models} {Attentive texture similarity as a
+  categorization task: {{Comparing}} texture synthesis models}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Pattern Recognition}{41}{3}{972--982}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Balas%
+}{%
+Balas%
+}{%
+{\protect \APACyear {2012}}%
+}]{%
+balas_contrast_2012}
+\APACinsertmetastar {%
+balas_contrast_2012}%
+\begin{APACrefauthors}%
+Balas, B\BPBI J.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2012}{{\APACmonth{01}}}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Contrast Negation and Texture Synthesis Differentially
+  Disrupt Natural Texture Appearance.} {Contrast negation and texture synthesis
+  differentially disrupt natural texture appearance.}{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Frontiers in psychology}{3}{November}{515}.
+\newblock
+\begin{APACrefDOI} \doi{10.3389/fpsyg.2012.00515} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Balas%
+\ \BBA {} Conlin%
+}{%
+Balas%
+\ \BBA {} Conlin%
+}{%
+{\protect \APACyear {2015}}%
+}]{%
+balas_invariant_2015}
+\APACinsertmetastar {%
+balas_invariant_2015}%
+\begin{APACrefauthors}%
+Balas, B\BPBI J.%
+\BCBT {}\ \BBA {} Conlin, C.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2015}{{\APACmonth{10}}}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Invariant Texture Perception Is Harder with Synthetic
+  Textures: {{Implications}} for Models of Texture Processing} {Invariant
+  texture perception is harder with synthetic textures: {{Implications}} for
+  models of texture processing}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Vision Research}{115}{}{271--279}.
+\newblock
+\begin{APACrefDOI} \doi{10.1016/j.visres.2015.01.022} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Balas%
+, Nakano%
+\BCBL {}\ \BBA {} Rosenholtz%
+}{%
+Balas%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2009}}%
+}]{%
+balas_summary-statistic_2009}
+\APACinsertmetastar {%
+balas_summary-statistic_2009}%
+\begin{APACrefauthors}%
+Balas, B\BPBI J.%
+, Nakano, L.%
+\BCBL {}\ \BBA {} Rosenholtz, R.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2009}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {A Summary-Statistic Representation in Peripheral Vision
+  Explains Visual Crowding} {A summary-statistic representation in peripheral
+  vision explains visual crowding}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Vision}{9}{12}{13}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Bates%
+, M{\"a}chler%
+, Bolker%
+\BCBL {}\ \BBA {} Walker%
+}{%
+Bates%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2015}}%
+}]{%
+bates_fitting_2015}
+\APACinsertmetastar {%
+bates_fitting_2015}%
+\begin{APACrefauthors}%
+Bates, D.%
+, M{\"a}chler, M.%
+, Bolker, B.%
+\BCBL {}\ \BBA {} Walker, S.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2015}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Fitting {{Linear Mixed}}-{{Effects Models Using}} Lme4}
+  {Fitting {{Linear Mixed}}-{{Effects Models Using}} lme4}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Statistical Software}{67}{1}{1--48}.
+\newblock
+\begin{APACrefDOI} \doi{10.18637/jss.v067.i01} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Beck%
+\ \BBA {} Gibson%
+}{%
+Beck%
+\ \BBA {} Gibson%
+}{%
+{\protect \APACyear {1955}}%
+}]{%
+beck_relation_1955}
+\APACinsertmetastar {%
+beck_relation_1955}%
+\begin{APACrefauthors}%
+Beck, J.%
+\BCBT {}\ \BBA {} Gibson, J\BPBI J.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1955}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {The Relation of Apparent Shape to Apparent Slant in the
+  Perception of Objects.} {The relation of apparent shape to apparent slant in
+  the perception of objects.}{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Experimental Psychology}{50}{2}{125--133}.
+\newblock
+\begin{APACrefDOI} \doi{10.1037/h0045219} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Brainard%
+}{%
+Brainard%
+}{%
+{\protect \APACyear {1997}}%
+}]{%
+brainard_psychophysics_1997}
+\APACinsertmetastar {%
+brainard_psychophysics_1997}%
+\begin{APACrefauthors}%
+Brainard, D\BPBI H.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1997}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {The {{Psychophysics Toolbox}}} {The {{Psychophysics
+  Toolbox}}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Spatial Vision}{10}{4}{433--436}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+B{\"u}rkner%
+}{%
+B{\"u}rkner%
+}{%
+{\protect \APACyear {{\protect \BIP {}}}}%
+}]{%
+burkner_brms:_????-1}
+\APACinsertmetastar {%
+burkner_brms:_????-1}%
+\begin{APACrefauthors}%
+B{\"u}rkner, P\BHBI C.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{{\protect \BIP {}}}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Brms: {{An R Package}} for {{Bayesian Multilevel
+  Models}} Using {{Stan}}} {Brms: {{An R Package}} for {{Bayesian Multilevel
+  Models}} using {{Stan}}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Statistical Software}{}{}{}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Cadieu%
+\ \protect \BOthers {.}}{%
+Cadieu%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2014}}%
+}]{%
+cadieu_deep_2014}
+\APACinsertmetastar {%
+cadieu_deep_2014}%
+\begin{APACrefauthors}%
+Cadieu, C\BPBI F.%
+, Hong, H.%
+, Yamins, D\BPBI L\BPBI K.%
+, Pinto, N.%
+, Ardila, D.%
+, Solomon, E\BPBI A.%
+\BDBL {}DiCarlo, J\BPBI J.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2014}{{\APACmonth{12}}}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Deep {{Neural Networks Rival}} the {{Representation}} of
+  {{Primate IT Cortex}} for {{Core Visual Object Recognition}}} {Deep {{Neural
+  Networks Rival}} the {{Representation}} of {{Primate IT Cortex}} for {{Core
+  Visual Object Recognition}}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{PLoS Computational Biology}{10}{12}{e1003963}.
+\newblock
+\begin{APACrefDOI} \doi{10.1371/journal.pcbi.1003963} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Cano%
+\ \BBA {} Minh%
+}{%
+Cano%
+\ \BBA {} Minh%
+}{%
+{\protect \APACyear {1988}}%
+}]{%
+cano_texture_1988}
+\APACinsertmetastar {%
+cano_texture_1988}%
+\begin{APACrefauthors}%
+Cano, D.%
+\BCBT {}\ \BBA {} Minh, T.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1988}{{\APACmonth{09}}}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Texture Synthesis Using Hierarchical Linear Transforms}
+  {Texture synthesis using hierarchical linear transforms}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Signal Processing}{15}{2}{131--148}.
+\newblock
+\begin{APACrefDOI} \doi{10.1016/0165-1684(88)90066-7} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Cheung%
+, Kallie%
+, Legge%
+\BCBL {}\ \BBA {} Cheong%
+}{%
+Cheung%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2008}}%
+}]{%
+cheung_nonlinear_2008}
+\APACinsertmetastar {%
+cheung_nonlinear_2008}%
+\begin{APACrefauthors}%
+Cheung, S\BHBI H.%
+, Kallie, C\BPBI S.%
+, Legge, G\BPBI E.%
+\BCBL {}\ \BBA {} Cheong, A\BPBI M\BPBI Y.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2008}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Nonlinear Mixed-Effects Modeling of {{MNREAD}} Data.}
+  {Nonlinear mixed-effects modeling of {{MNREAD}} data.}{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Investigative Ophthalmology \& Visual
+  Science}{49}{2}{828--835}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Cichy%
+, Khosla%
+, Pantazis%
+\BCBL {}\ \BBA {} Oliva%
+}{%
+Cichy%
+, Khosla%
+, Pantazis%
+\BCBL {}\ \BBA {} Oliva%
+}{%
+{\protect \APACyear {2016}}%
+}]{%
+cichy_dynamics_2016}
+\APACinsertmetastar {%
+cichy_dynamics_2016}%
+\begin{APACrefauthors}%
+Cichy, R\BPBI M.%
+, Khosla, A.%
+, Pantazis, D.%
+\BCBL {}\ \BBA {} Oliva, A.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2016}{{\APACmonth{04}}}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Dynamics of Scene Representations in the Human Brain
+  Revealed by Magnetoencephalography and Deep Neural Networks} {Dynamics of
+  scene representations in the human brain revealed by magnetoencephalography
+  and deep neural networks}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{NeuroImage}{}{}{}.
+\newblock
+\begin{APACrefDOI} \doi{10.1016/j.neuroimage.2016.03.063} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Cichy%
+, Khosla%
+, Pantazis%
+, Torralba%
+\BCBL {}\ \BBA {} Oliva%
+}{%
+Cichy%
+, Khosla%
+, Pantazis%
+, Torralba%
+\BCBL {}\ \BBA {} Oliva%
+}{%
+{\protect \APACyear {2016}}%
+}]{%
+cichy_comparison_2016}
+\APACinsertmetastar {%
+cichy_comparison_2016}%
+\begin{APACrefauthors}%
+Cichy, R\BPBI M.%
+, Khosla, A.%
+, Pantazis, D.%
+, Torralba, A.%
+\BCBL {}\ \BBA {} Oliva, A.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2016}{{\APACmonth{06}}}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Comparison of Deep Neural Networks to Spatio-Temporal
+  Cortical Dynamics of Human Visual Object Recognition Reveals Hierarchical
+  Correspondence} {Comparison of deep neural networks to spatio-temporal
+  cortical dynamics of human visual object recognition reveals hierarchical
+  correspondence}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Scientific Reports}{6}{}{27755}.
+\newblock
+\begin{APACrefDOI} \doi{10.1038/srep27755} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Clarke%
+, Herzog%
+\BCBL {}\ \BBA {} Francis%
+}{%
+Clarke%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2014}}%
+}]{%
+clarke_visual_2014}
+\APACinsertmetastar {%
+clarke_visual_2014}%
+\begin{APACrefauthors}%
+Clarke, A\BPBI M.%
+, Herzog, M\BPBI H.%
+\BCBL {}\ \BBA {} Francis, G.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2014}{{\APACmonth{10}}}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Visual Crowding Illustrates the Inadequacy of Local vs.
+  Global and Feedforward vs. Feedback Distinctions in Modeling Visual
+  Perception} {Visual crowding illustrates the inadequacy of local vs. global
+  and feedforward vs. feedback distinctions in modeling visual
+  perception}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Frontiers in Psychology}{5}{}{}.
+\newblock
+\begin{APACrefDOI} \doi{10.3389/fpsyg.2014.01193} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Dakin%
+}{%
+Dakin%
+}{%
+{\protect \APACyear {2014}}%
+}]{%
+dakin_seeing_2014}
+\APACinsertmetastar {%
+dakin_seeing_2014}%
+\begin{APACrefauthors}%
+Dakin, S.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2014}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Seeing Statistical Regularities: {{Texture}} and Pattern
+  Perception} {Seeing statistical regularities: {{Texture}} and pattern
+  perception}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {Oxford {{Handbook}} of {{Perceptual Organization}}}
+  {Oxford {{Handbook}} of {{Perceptual Organization}}}\ (\BPGS\ 1--19).
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Donahue%
+, Jia%
+\BCBL {}\ \BBA {} Vinyals%
+}{%
+Donahue%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2013}}%
+}]{%
+donahue_decaf_2013}
+\APACinsertmetastar {%
+donahue_decaf_2013}%
+\begin{APACrefauthors}%
+Donahue, J.%
+, Jia, Y.%
+\BCBL {}\ \BBA {} Vinyals, O.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2013}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Decaf: {{A}} Deep Convolutional Activation Feature for
+  Generic Visual Recognition} {Decaf: {{A}} deep convolutional activation
+  feature for generic visual recognition}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{arXiv}{}{}{1--10}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Efros%
+\ \BBA {} Freeman%
+}{%
+Efros%
+\ \BBA {} Freeman%
+}{%
+{\protect \APACyear {2001}}%
+}]{%
+efros_image_2001}
+\APACinsertmetastar {%
+efros_image_2001}%
+\begin{APACrefauthors}%
+Efros, A\BPBI A.%
+\BCBT {}\ \BBA {} Freeman, W\BPBI T.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2001}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Image Quilting for Texture Synthesis and Transfer}
+  {Image quilting for texture synthesis and transfer}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {Proceedings of the 28th Annual Conference on
+  {{Computer}} Graphics and Interactive Techniques} {Proceedings of the 28th
+  annual conference on {{Computer}} graphics and interactive techniques}\
+  (\BPGS\ 341--346).
+\newblock
+\APACaddressPublisher{}{{ACM}}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Fleming%
+}{%
+Fleming%
+}{%
+{\protect \APACyear {2014}}%
+}]{%
+fleming_visual_2014}
+\APACinsertmetastar {%
+fleming_visual_2014}%
+\begin{APACrefauthors}%
+Fleming, R.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2014}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Visual Perception of Materials and Their Properties}
+  {Visual perception of materials and their properties}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Vision research}{94}{C}{62--75}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Freeman%
+\ \BBA {} Simoncelli%
+}{%
+Freeman%
+\ \BBA {} Simoncelli%
+}{%
+{\protect \APACyear {2011}}%
+}]{%
+freeman_metamers_2011}
+\APACinsertmetastar {%
+freeman_metamers_2011}%
+\begin{APACrefauthors}%
+Freeman, J.%
+\BCBT {}\ \BBA {} Simoncelli, E\BPBI P.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2011}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Metamers of the Ventral Stream} {Metamers of the ventral
+  stream}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Nature Neuroscience}{14}{9}{1195--1201}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Freeman%
+, Ziemba%
+, Heeger%
+, Simoncelli%
+\BCBL {}\ \BBA {} Movshon%
+}{%
+Freeman%
+, Ziemba%
+, Heeger%
+\BCBL {}\ \protect \BOthers {.}}{%
+{\protect \APACyear {2013}}%
+}]{%
+freeman_functional_2013}
+\APACinsertmetastar {%
+freeman_functional_2013}%
+\begin{APACrefauthors}%
+Freeman, J.%
+, Ziemba, C.%
+, Heeger, D\BPBI J.%
+, Simoncelli, E\BPBI P.%
+\BCBL {}\ \BBA {} Movshon, J\BPBI A.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2013}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {A Functional and Perceptual Signature of the Second
+  Visual Area in Primates} {A functional and perceptual signature of the second
+  visual area in primates}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Nature Neuroscience}{16}{7}{974--981}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Freeman%
+, Ziemba%
+, Simoncelli%
+\BCBL {}\ \BBA {} Movshon%
+}{%
+Freeman%
+, Ziemba%
+, Simoncelli%
+\BCBL {}\ \BBA {} Movshon%
+}{%
+{\protect \APACyear {2013}}%
+}]{%
+freeman_functionally_2013}
+\APACinsertmetastar {%
+freeman_functionally_2013}%
+\begin{APACrefauthors}%
+Freeman, J.%
+, Ziemba, C\BPBI M.%
+, Simoncelli, E\BPBI P.%
+\BCBL {}\ \BBA {} Movshon, J\BPBI A.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2013}{{\APACmonth{11}}}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Functionally Partitioning the Ventral Stream with
+  Controlled Natural Stimuli} {Functionally partitioning the ventral stream
+  with controlled natural stimuli}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {Annual {{Meeting}}, {{Neuroscience}}.} {Annual
+  {{Meeting}}, {{Neuroscience}}.}
+\newblock
+\APACaddressPublisher{San Diego, CA}{{Society for Neuroscience}}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Gatys%
+, Ecker%
+\BCBL {}\ \BBA {} Bethge%
+}{%
+Gatys%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2015}}%
+}]{%
+gatys_texture_2015-1}
+\APACinsertmetastar {%
+gatys_texture_2015-1}%
+\begin{APACrefauthors}%
+Gatys, L\BPBI A.%
+, Ecker, A\BPBI S.%
+\BCBL {}\ \BBA {} Bethge, M.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2015}{{\APACmonth{05}}}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Texture {{Synthesis Using Convolutional Neural
+  Networks}}} {Texture {{Synthesis Using Convolutional Neural
+  Networks}}}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {Advances in {{Neural Information Processing Systems}}
+  28.} {Advances in {{Neural Information Processing Systems}} 28.}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Gatys%
+, Ecker%
+\BCBL {}\ \BBA {} Bethge%
+}{%
+Gatys%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2016}}%
+}]{%
+gatys_image_2016}
+\APACinsertmetastar {%
+gatys_image_2016}%
+\begin{APACrefauthors}%
+Gatys, L\BPBI A.%
+, Ecker, A\BPBI S.%
+\BCBL {}\ \BBA {} Bethge, M.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2016}{{\APACmonth{06}}}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Image {{Style Transfer Using Convolutional Neural
+  Networks}}} {Image {{Style Transfer Using Convolutional Neural
+  Networks}}}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {Proceedings of the {{IEEE Conference}} on {{Computer
+  Vision}} and {{Pattern Recognition}}.} {Proceedings of the {{IEEE
+  Conference}} on {{Computer Vision}} and {{Pattern Recognition}}.}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Geirhos%
+\ \protect \BOthers {.}}{%
+Geirhos%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2017}}%
+}]{%
+geirhos_comparing_2017}
+\APACinsertmetastar {%
+geirhos_comparing_2017}%
+\begin{APACrefauthors}%
+Geirhos, R.%
+, Janssen, D\BPBI H\BPBI J.%
+, Sch{\"u}tt, H\BPBI H.%
+, Rauber, J.%
+, Bethge, M.%
+\BCBL {}\ \BBA {} Wichmann, F\BPBI A.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2017}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Comparing {{Deep Neural Networks}} against Humans:
+  {{Object}} Recognition When the Signal Gets Weaker} {Comparing {{Deep Neural
+  Networks}} against humans: {{Object}} recognition when the signal gets
+  weaker}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{arXiv:1706.06969}{}{}{}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Gelman%
+}{%
+Gelman%
+}{%
+{\protect \APACyear {2006}}%
+}]{%
+gelman_prior_2006}
+\APACinsertmetastar {%
+gelman_prior_2006}%
+\begin{APACrefauthors}%
+Gelman, A.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2006}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Prior Distributions for Variance Parameters in
+  Hierarchical Models} {Prior distributions for variance parameters in
+  hierarchical models}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Bayesian Analysis}{1}{3}{515--533}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Gelman%
+\ \BBA {} Hill%
+}{%
+Gelman%
+\ \BBA {} Hill%
+}{%
+{\protect \APACyear {2007}}%
+}]{%
+gelman_data_2007}
+\APACinsertmetastar {%
+gelman_data_2007}%
+\begin{APACrefauthors}%
+Gelman, A.%
+\BCBT {}\ \BBA {} Hill, J.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYear{2007}.
+\newblock
+\APACrefbtitle {Data {{Analysis}} Using Regression and Multilevel/Hierarchical
+  Models} {Data {{Analysis}} using regression and multilevel/hierarchical
+  models}.
+\newblock
+\APACaddressPublisher{New York, NY}{{Cambridge Univ Press}}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Gelman%
+\ \BBA {} Rubin%
+}{%
+Gelman%
+\ \BBA {} Rubin%
+}{%
+{\protect \APACyear {1992}}%
+}]{%
+gelman_inference_1992}
+\APACinsertmetastar {%
+gelman_inference_1992}%
+\begin{APACrefauthors}%
+Gelman, A.%
+\BCBT {}\ \BBA {} Rubin, D\BPBI B.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1992}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Inference from Iterative Simulation Using Multiple
+  Sequences} {Inference from iterative simulation using multiple
+  sequences}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Statistical Science}{7}{4}{457--472}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Gibson%
+}{%
+Gibson%
+}{%
+{\protect \APACyear {1950}}%
+}]{%
+gibson_perception_1950}
+\APACinsertmetastar {%
+gibson_perception_1950}%
+\begin{APACrefauthors}%
+Gibson, J\BPBI J.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1950}{{\APACmonth{07}}}{}.
+\newblock
+{\BBOQ}\APACrefatitle {The {{Perception}} of {{Visual Surfaces}}} {The
+  {{Perception}} of {{Visual Surfaces}}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{The American Journal of Psychology}{63}{3}{367}.
+\newblock
+\begin{APACrefDOI} \doi{10.2307/1418003} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Guclu%
+\ \BBA {} {van Gerven}%
+}{%
+Guclu%
+\ \BBA {} {van Gerven}%
+}{%
+{\protect \APACyear {2015}}%
+}]{%
+guclu_deep_2015}
+\APACinsertmetastar {%
+guclu_deep_2015}%
+\begin{APACrefauthors}%
+Guclu, U.%
+\BCBT {}\ \BBA {} {van Gerven}, M\BPBI A\BPBI J.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2015}{{\APACmonth{07}}}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Deep {{Neural Networks Reveal}} a {{Gradient}} in the
+  {{Complexity}} of {{Neural Representations}} across the {{Ventral Stream}}}
+  {Deep {{Neural Networks Reveal}} a {{Gradient}} in the {{Complexity}} of
+  {{Neural Representations}} across the {{Ventral Stream}}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Neuroscience}{35}{27}{10005--10014}.
+\newblock
+\begin{APACrefDOI} \doi{10.1523/JNEUROSCI.5023-14.2015} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Gurnsey%
+, Pearson%
+\BCBL {}\ \BBA {} Day%
+}{%
+Gurnsey%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {1996}}%
+}]{%
+gurnsey_texture_1996}
+\APACinsertmetastar {%
+gurnsey_texture_1996}%
+\begin{APACrefauthors}%
+Gurnsey, R.%
+, Pearson, P.%
+\BCBL {}\ \BBA {} Day, D.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1996}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Texture Segmentation along the Horizontal Meridian:
+  Nonmonotonic Changes in Performance with Eccentricity.} {Texture segmentation
+  along the horizontal meridian: Nonmonotonic changes in performance with
+  eccentricity.}{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Experimental Psychology: Human Perception
+  and Performance}{22}{3}{738}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Heeger%
+\ \BBA {} Bergen%
+}{%
+Heeger%
+\ \BBA {} Bergen%
+}{%
+{\protect \APACyear {1995}}%
+}]{%
+heeger_pyramidbased_1995}
+\APACinsertmetastar {%
+heeger_pyramidbased_1995}%
+\begin{APACrefauthors}%
+Heeger, D\BPBI J.%
+\BCBT {}\ \BBA {} Bergen, J\BPBI R.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1995}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Pyramid-Based {{Texture Analysis}}/{{Synthesis}}}
+  {Pyramid-based {{Texture Analysis}}/{{Synthesis}}}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {Proceedings of the {{22Nd Annual Conference}} on
+  {{Computer Graphics}} and {{Interactive Techniques}}} {Proceedings of the
+  {{22Nd Annual Conference}} on {{Computer Graphics}} and {{Interactive
+  Techniques}}}\ (\BPGS\ 229--238).
+\newblock
+\APACaddressPublisher{New York, NY, USA}{{ACM}}.
+\newblock
+\begin{APACrefDOI} \doi{10.1145/218380.218446} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Herzog%
+, Sayim%
+, Chicherov%
+\BCBL {}\ \BBA {} Manassi%
+}{%
+Herzog%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2015}}%
+}]{%
+herzog_crowding_2015}
+\APACinsertmetastar {%
+herzog_crowding_2015}%
+\begin{APACrefauthors}%
+Herzog, M\BPBI H.%
+, Sayim, B.%
+, Chicherov, V.%
+\BCBL {}\ \BBA {} Manassi, M.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2015}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Crowding, Grouping, and Object Recognition: {{A}} Matter
+  of Appearance} {Crowding, grouping, and object recognition: {{A}} matter of
+  appearance}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Vision}{15}{6}{}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Ho%
+, Landy%
+\BCBL {}\ \BBA {} Maloney%
+}{%
+Ho%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2008}}%
+}]{%
+ho_conjoint_2008}
+\APACinsertmetastar {%
+ho_conjoint_2008}%
+\begin{APACrefauthors}%
+Ho, Y\BHBI X.%
+, Landy, M\BPBI S.%
+\BCBL {}\ \BBA {} Maloney, L\BPBI T.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2008}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Conjoint Measurement of Gloss and Surface Texture}
+  {Conjoint measurement of gloss and surface texture}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Psychological Science}{19}{2}{196--204}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Hoffman%
+\ \BBA {} Gelman%
+}{%
+Hoffman%
+\ \BBA {} Gelman%
+}{%
+{\protect \APACyear {2014}}%
+}]{%
+hoffman_nouturn_2014}
+\APACinsertmetastar {%
+hoffman_nouturn_2014}%
+\begin{APACrefauthors}%
+Hoffman, M\BPBI D.%
+\BCBT {}\ \BBA {} Gelman, A.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2014}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {The {{No}}-{{U}}-{{Turn Sampler}}: {{Adaptively Setting
+  Path Lengths}} in {{Hamiltonian Monte Carlo}}} {The {{No}}-{{U}}-{{Turn
+  Sampler}}: {{Adaptively Setting Path Lengths}} in {{Hamiltonian Monte
+  Carlo}}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Machine Learning
+  Research}{15}{Apr}{1593--1623}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Hong%
+, Yamins%
+, Majaj%
+\BCBL {}\ \BBA {} DiCarlo%
+}{%
+Hong%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2016}}%
+}]{%
+hong_explicit_2016}
+\APACinsertmetastar {%
+hong_explicit_2016}%
+\begin{APACrefauthors}%
+Hong, H.%
+, Yamins, D\BPBI L\BPBI K.%
+, Majaj, N\BPBI J.%
+\BCBL {}\ \BBA {} DiCarlo, J\BPBI J.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2016}{{\APACmonth{02}}}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Explicit Information for Category-Orthogonal Object
+  Properties Increases along the Ventral Stream} {Explicit information for
+  category-orthogonal object properties increases along the ventral
+  stream}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Nature Neuroscience}{19}{4}{613--622}.
+\newblock
+\begin{APACrefDOI} \doi{10.1038/nn.4247} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Jones%
+, Oliphant%
+\BCBL {}\ \BBA {} Peterson%
+}{%
+Jones%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2001}}%
+}]{%
+jones_scipy_2001}
+\APACinsertmetastar {%
+jones_scipy_2001}%
+\begin{APACrefauthors}%
+Jones, E.%
+, Oliphant, T.%
+\BCBL {}\ \BBA {} Peterson, P.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYear{2001}.
+\newblock
+\APACrefbtitle {{{SciPy}}: {{Open}} Source Scientific Tools for {{Python}}}
+  {{{SciPy}}: {{Open}} source scientific tools for {{Python}}}.
+\newblock
+\APACrefnote{[Online; accessed 2014-09-12]}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Julesz%
+}{%
+Julesz%
+}{%
+{\protect \APACyear {1962}}%
+}]{%
+julesz_visual_1962}
+\APACinsertmetastar {%
+julesz_visual_1962}%
+\begin{APACrefauthors}%
+Julesz, B.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1962}{{\APACmonth{02}}}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Visual {{Pattern Discrimination}}} {Visual {{Pattern
+  Discrimination}}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{IEEE Transactions on Information Theory}{8}{2}{84--92}.
+\newblock
+\begin{APACrefDOI} \doi{10.1109/TIT.1962.1057698} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Julesz%
+}{%
+Julesz%
+}{%
+{\protect \APACyear {1981}}%
+}]{%
+julesz_textons_1981}
+\APACinsertmetastar {%
+julesz_textons_1981}%
+\begin{APACrefauthors}%
+Julesz, B.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1981}{{\APACmonth{03}}}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Textons, the Elements of Texture Perception, and Their
+  Interactions} {Textons, the elements of texture perception, and their
+  interactions}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Nature}{290}{5802}{91--97}.
+\newblock
+\begin{APACrefDOI} \doi{10.1038/290091a0} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Julesz%
+, Gilbert%
+\BCBL {}\ \BBA {} Victor%
+}{%
+Julesz%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {1978}}%
+}]{%
+julesz_visual_1978}
+\APACinsertmetastar {%
+julesz_visual_1978}%
+\begin{APACrefauthors}%
+Julesz, B.%
+, Gilbert, E\BPBI N.%
+\BCBL {}\ \BBA {} Victor, J\BPBI D.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1978}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Visual Discrimination of Textures with Identical
+  Third-Order Statistics} {Visual discrimination of textures with identical
+  third-order statistics}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Biological Cybernetics}{31}{3}{137--140}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Kehrer%
+}{%
+Kehrer%
+}{%
+{\protect \APACyear {1987}}%
+}]{%
+kehrer_perceptual_1987}
+\APACinsertmetastar {%
+kehrer_perceptual_1987}%
+\begin{APACrefauthors}%
+Kehrer, L.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1987}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Perceptual Segregation and Retinal Position} {Perceptual
+  segregation and retinal position}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Spatial Vision}{2}{4}{247--261}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Kehrer%
+}{%
+Kehrer%
+}{%
+{\protect \APACyear {1989}}%
+}]{%
+kehrer_central_1989}
+\APACinsertmetastar {%
+kehrer_central_1989}%
+\begin{APACrefauthors}%
+Kehrer, L.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1989}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Central Performance Drop on Perceptual Segregation
+  Tasks} {Central performance drop on perceptual segregation tasks}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Spatial vision}{4}{1}{45--62}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Keshvari%
+\ \BBA {} Rosenholtz%
+}{%
+Keshvari%
+\ \BBA {} Rosenholtz%
+}{%
+{\protect \APACyear {2016}}%
+}]{%
+keshvari_pooling_2016}
+\APACinsertmetastar {%
+keshvari_pooling_2016}%
+\begin{APACrefauthors}%
+Keshvari, S.%
+\BCBT {}\ \BBA {} Rosenholtz, R.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2016}{{\APACmonth{02}}}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Pooling of Continuous Features Provides a Unifying
+  Account of Crowding} {Pooling of continuous features provides a unifying
+  account of crowding}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Vision}{16}{3}{39}.
+\newblock
+\begin{APACrefDOI} \doi{10.1167/16.3.39} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Khaligh-Razavi%
+\ \BBA {} Kriegeskorte%
+}{%
+Khaligh-Razavi%
+\ \BBA {} Kriegeskorte%
+}{%
+{\protect \APACyear {2014}}%
+}]{%
+khaligh-razavi_deep_2014}
+\APACinsertmetastar {%
+khaligh-razavi_deep_2014}%
+\begin{APACrefauthors}%
+Khaligh-Razavi, S\BHBI M.%
+\BCBT {}\ \BBA {} Kriegeskorte, N.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2014}{{\APACmonth{11}}}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Deep {{Supervised}}, but {{Not Unsupervised}}, {{Models
+  May Explain IT Cortical Representation}}} {Deep {{Supervised}}, but {{Not
+  Unsupervised}}, {{Models May Explain IT Cortical Representation}}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{PLoS Computational Biology}{10}{11}{e1003915}.
+\newblock
+\begin{APACrefDOI} \doi{10.1371/journal.pcbi.1003915} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Kietzmann%
+, McClure%
+\BCBL {}\ \BBA {} Kriegeskorte%
+}{%
+Kietzmann%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2017}}%
+}]{%
+kietzmann_deep_2017}
+\APACinsertmetastar {%
+kietzmann_deep_2017}%
+\begin{APACrefauthors}%
+Kietzmann, T\BPBI C.%
+, McClure, P.%
+\BCBL {}\ \BBA {} Kriegeskorte, N.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2017}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Deep {{Neural Networks In Computational Neuroscience}}}
+  {Deep {{Neural Networks In Computational Neuroscience}}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{bioRxiv}{}{}{133504}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Kleiner%
+, Brainard%
+\BCBL {}\ \BBA {} Pelli%
+}{%
+Kleiner%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2007}}%
+}]{%
+kleiner_whats_2007}
+\APACinsertmetastar {%
+kleiner_whats_2007}%
+\begin{APACrefauthors}%
+Kleiner, M.%
+, Brainard, D\BPBI H.%
+\BCBL {}\ \BBA {} Pelli, D\BPBI G.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2007}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {What's New in {{Psychtoolbox}}-3?} {What's new in
+  {{Psychtoolbox}}-3?}{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Perception}{36}{ECVP Abstract Supplement}{}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Knoblauch%
+\ \BBA {} Maloney%
+}{%
+Knoblauch%
+\ \BBA {} Maloney%
+}{%
+{\protect \APACyear {2012}}%
+}]{%
+knoblauch_modeling_2012}
+\APACinsertmetastar {%
+knoblauch_modeling_2012}%
+\begin{APACrefauthors}%
+Knoblauch, K.%
+\BCBT {}\ \BBA {} Maloney, L\BPBI T.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYear{2012}.
+\newblock
+\APACrefbtitle {Modeling {{Psychophysical Data}} in {{R}}} {Modeling
+  {{Psychophysical Data}} in {{R}}}.
+\newblock
+\APACaddressPublisher{New York}{{Springer}}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Koenderink%
+, Valsecchi%
+, {van Doorn}%
+, Wagemans%
+\BCBL {}\ \BBA {} Gegenfurtner%
+}{%
+Koenderink%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2017}}%
+}]{%
+koenderink_eidolons:_2017}
+\APACinsertmetastar {%
+koenderink_eidolons:_2017}%
+\begin{APACrefauthors}%
+Koenderink, J.%
+, Valsecchi, M.%
+, {van Doorn}, A.%
+, Wagemans, J.%
+\BCBL {}\ \BBA {} Gegenfurtner, K.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2017}{{\APACmonth{03}}}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Eidolons: {{Novel}} Stimuli for Vision Research}
+  {Eidolons: {{Novel}} stimuli for vision research}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Vision}{17}{2}{7}.
+\newblock
+\begin{APACrefDOI} \doi{10.1167/17.2.7} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Koenderink%
+\ \BBA {} {van Doorn}%
+}{%
+Koenderink%
+\ \BBA {} {van Doorn}%
+}{%
+{\protect \APACyear {1996}}%
+}]{%
+koenderink_metamerism_1996}
+\APACinsertmetastar {%
+koenderink_metamerism_1996}%
+\begin{APACrefauthors}%
+Koenderink, J.%
+\BCBT {}\ \BBA {} {van Doorn}, A\BPBI J.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1996}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Metamerism in Complete Sets of Image Operators}
+  {Metamerism in complete sets of image operators}.{\BBCQ}
+\newblock
+\BIn{} K.~Bowyer\ \BBA {} N.~Ahuja\ (\BEDS), \APACrefbtitle {Advances in Image
+  Understanding : A {{Festschrift}} for {{Azriel Rosenfeld}}.} {Advances in
+  image understanding : A {{Festschrift}} for {{Azriel Rosenfeld}}.}
+\newblock
+\APACaddressPublisher{Los Alamitos, Calif. [u.a.]}{{IEEE Computer Society
+  Press}}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Kruschke%
+}{%
+Kruschke%
+}{%
+{\protect \APACyear {2011}}%
+}]{%
+kruschke_doing_2011}
+\APACinsertmetastar {%
+kruschke_doing_2011}%
+\begin{APACrefauthors}%
+Kruschke, J\BPBI K.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYear{2011}.
+\newblock
+\APACrefbtitle {Doing {{Bayesian Data Analysis}}} {Doing {{Bayesian Data
+  Analysis}}}.
+\newblock
+\APACaddressPublisher{Burlington MA}{{Academic Press / Elsevier}}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Kruschke%
+\ \BBA {} Liddell%
+}{%
+Kruschke%
+\ \BBA {} Liddell%
+}{%
+{\protect \APACyear {2017}}%
+}]{%
+kruschke_bayesian_2017}
+\APACinsertmetastar {%
+kruschke_bayesian_2017}%
+\begin{APACrefauthors}%
+Kruschke, J\BPBI K.%
+\BCBT {}\ \BBA {} Liddell, T\BPBI M.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2017}{{\APACmonth{02}}}{}.
+\newblock
+{\BBOQ}\APACrefatitle {The {{Bayesian New Statistics}}: {{Hypothesis}} Testing,
+  Estimation, Meta-Analysis, and Power Analysis from a {{Bayesian}}
+  Perspective} {The {{Bayesian New Statistics}}: {{Hypothesis}} testing,
+  estimation, meta-analysis, and power analysis from a {{Bayesian}}
+  perspective}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Psychonomic Bulletin \& Review}{}{}{}.
+\newblock
+\begin{APACrefDOI} \doi{10.3758/s13423-016-1221-4} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Kubilius%
+, Bracci%
+\BCBL {}\ \BBA {} {Op de Beeck}%
+}{%
+Kubilius%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2016}}%
+}]{%
+kubilius_deep_2016}
+\APACinsertmetastar {%
+kubilius_deep_2016}%
+\begin{APACrefauthors}%
+Kubilius, J.%
+, Bracci, S.%
+\BCBL {}\ \BBA {} {Op de Beeck}, H\BPBI P.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2016}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Deep {{Neural Networks}} as a {{Computational Model}}
+  for {{Human Shape Sensitivity}}} {Deep {{Neural Networks}} as a
+  {{Computational Model}} for {{Human Shape Sensitivity}}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{PLoS Comput Biol}{12}{4}{e1004896}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Landy%
+}{%
+Landy%
+}{%
+{\protect \APACyear {2013}}%
+}]{%
+landy_texture_2013}
+\APACinsertmetastar {%
+landy_texture_2013}%
+\begin{APACrefauthors}%
+Landy, M\BPBI S.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2013}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Texture Analysis and Perception} {Texture analysis and
+  perception}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{The new visual neurosciences (ed. Werner JS, Chalupa
+  LM)}{}{}{639--652}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+LeCun%
+, Bengio%
+\BCBL {}\ \BBA {} Hinton%
+}{%
+LeCun%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2015}}%
+}]{%
+lecun_deep_2015}
+\APACinsertmetastar {%
+lecun_deep_2015}%
+\begin{APACrefauthors}%
+LeCun, Y.%
+, Bengio, Y.%
+\BCBL {}\ \BBA {} Hinton, G.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2015}{{\APACmonth{05}}}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Deep Learning} {Deep learning}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Nature}{521}{7553}{436--444}.
+\newblock
+\begin{APACrefDOI} \doi{10.1038/nature14539} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Lewandowski%
+, Kurowicka%
+\BCBL {}\ \BBA {} Joe%
+}{%
+Lewandowski%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2009}}%
+}]{%
+lewandowski_generating_2009}
+\APACinsertmetastar {%
+lewandowski_generating_2009}%
+\begin{APACrefauthors}%
+Lewandowski, D.%
+, Kurowicka, D.%
+\BCBL {}\ \BBA {} Joe, H.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2009}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Generating Random Correlation Matrices Based on Vines
+  and Extended Onion Method} {Generating random correlation matrices based on
+  vines and extended onion method}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Multivariate Analysis}{100}{9}{1989--2001}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Liu%
+, Goussau%
+\BCBL {}\ \BBA {} Xia%
+}{%
+Liu%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2016}}%
+}]{%
+liu_texture_2016}
+\APACinsertmetastar {%
+liu_texture_2016}%
+\begin{APACrefauthors}%
+Liu, G.%
+, Goussau, Y.%
+\BCBL {}\ \BBA {} Xia, G\BHBI S.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2016}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Texture {{Synthesis Through Convolutional Neural
+  Networks}} and {{Spectrum Constraints}}} {Texture {{Synthesis Through
+  Convolutional Neural Networks}} and {{Spectrum Constraints}}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{arXiv preprint arXiv:1605.01141}{}{}{}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Macmillan%
+\ \BBA {} Creelman%
+}{%
+Macmillan%
+\ \BBA {} Creelman%
+}{%
+{\protect \APACyear {2005}}%
+}]{%
+macmillan_detection_2005}
+\APACinsertmetastar {%
+macmillan_detection_2005}%
+\begin{APACrefauthors}%
+Macmillan, N\BPBI A.%
+\BCBT {}\ \BBA {} Creelman, C\BPBI D.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYear{2005}.
+\newblock
+\APACrefbtitle {Detection {{Theory}}: {{A User}}'s {{Guide}}} {Detection
+  {{Theory}}: {{A User}}'s {{Guide}}}.
+\newblock
+\APACaddressPublisher{Mahwah, NJ}{{Lawrence Erlbaum}}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Malik%
+\ \BBA {} Perona%
+}{%
+Malik%
+\ \BBA {} Perona%
+}{%
+{\protect \APACyear {1990}}%
+}]{%
+malik_preattentive_1990}
+\APACinsertmetastar {%
+malik_preattentive_1990}%
+\begin{APACrefauthors}%
+Malik, J.%
+\BCBT {}\ \BBA {} Perona, P.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1990}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Preattentive Texture Discrimination with Early Vision
+  Mechanisms.} {Preattentive texture discrimination with early vision
+  mechanisms.}{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of the Optical Society of America
+  A}{7}{5}{923--932}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+McElreath%
+}{%
+McElreath%
+}{%
+{\protect \APACyear {2016}}%
+}]{%
+mcelreath_statistical_2016}
+\APACinsertmetastar {%
+mcelreath_statistical_2016}%
+\begin{APACrefauthors}%
+McElreath, R.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYear{2016}.
+\newblock
+\APACrefbtitle {Statistical Rethinking: A {{Bayesian}} Course with Examples in
+  {{R}} and {{Stan}}} {Statistical rethinking: A {{Bayesian}} course with
+  examples in {{R}} and {{Stan}}}\ (\BNUM~122).
+\newblock
+\APACaddressPublisher{Boca Raton London New York}{{CRC Press, Taylor \& Francis
+  Group}}.
+\newblock
+\APACrefnote{OCLC: 936134364}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Miller%
+\ \BBA {} Ulrich%
+}{%
+Miller%
+\ \BBA {} Ulrich%
+}{%
+{\protect \APACyear {2015}}%
+}]{%
+miller_interpreting_2015}
+\APACinsertmetastar {%
+miller_interpreting_2015}%
+\begin{APACrefauthors}%
+Miller, J.%
+\BCBT {}\ \BBA {} Ulrich, R.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2015}{{\APACmonth{11}}}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Interpreting Confidence Intervals: {{A}} Comment on
+  {{Hoekstra}}, {{Morey}}, {{Rouder}}, and {{Wagenmakers}} (2014)}
+  {Interpreting confidence intervals: {{A}} comment on {{Hoekstra}}, {{Morey}},
+  {{Rouder}}, and {{Wagenmakers}} (2014)}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Psychonomic Bulletin \& Review}{}{}{}.
+\newblock
+\begin{APACrefDOI} \doi{10.3758/s13423-015-0859-7} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Morey%
+, Hoekstra%
+, Rouder%
+, Lee%
+\BCBL {}\ \BBA {} Wagenmakers%
+}{%
+Morey%
+, Hoekstra%
+, Rouder%
+, Lee%
+\BCBL {}\ \BBA {} Wagenmakers%
+}{%
+{\protect \APACyear {2015}}%
+}]{%
+morey_fallacy_2015}
+\APACinsertmetastar {%
+morey_fallacy_2015}%
+\begin{APACrefauthors}%
+Morey, R\BPBI D.%
+, Hoekstra, R.%
+, Rouder, J\BPBI N.%
+, Lee, M\BPBI D.%
+\BCBL {}\ \BBA {} Wagenmakers, E\BHBI J.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2015}{{\APACmonth{10}}}{}.
+\newblock
+{\BBOQ}\APACrefatitle {The Fallacy of Placing Confidence in Confidence
+  Intervals} {The fallacy of placing confidence in confidence
+  intervals}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Psychonomic Bulletin \& Review}{}{}{}.
+\newblock
+\begin{APACrefDOI} \doi{10.3758/s13423-015-0947-8} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Morey%
+, Hoekstra%
+, Rouder%
+\BCBL {}\ \BBA {} Wagenmakers%
+}{%
+Morey%
+, Hoekstra%
+, Rouder%
+\BCBL {}\ \BBA {} Wagenmakers%
+}{%
+{\protect \APACyear {2015}}%
+}]{%
+morey_continued_2015}
+\APACinsertmetastar {%
+morey_continued_2015}%
+\begin{APACrefauthors}%
+Morey, R\BPBI D.%
+, Hoekstra, R.%
+, Rouder, J\BPBI N.%
+\BCBL {}\ \BBA {} Wagenmakers, E\BHBI J.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2015}{{\APACmonth{11}}}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Continued Misinterpretation of Confidence Intervals:
+  Response to {{Miller}} and {{Ulrich}}} {Continued misinterpretation of
+  confidence intervals: Response to {{Miller}} and {{Ulrich}}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Psychonomic Bulletin \& Review}{}{}{}.
+\newblock
+\begin{APACrefDOI} \doi{10.3758/s13423-015-0955-8} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Moscatelli%
+, Mezzetti%
+\BCBL {}\ \BBA {} Lacquaniti%
+}{%
+Moscatelli%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2012}}%
+}]{%
+moscatelli_modeling_2012}
+\APACinsertmetastar {%
+moscatelli_modeling_2012}%
+\begin{APACrefauthors}%
+Moscatelli, A.%
+, Mezzetti, M.%
+\BCBL {}\ \BBA {} Lacquaniti, F.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2012}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Modeling Psychophysical Data at the Population-Level:
+  The Generalized Linear Mixed Model.} {Modeling psychophysical data at the
+  population-level: The generalized linear mixed model.}{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Vision}{12}{11}{}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Movshon%
+\ \BBA {} Simoncelli%
+}{%
+Movshon%
+\ \BBA {} Simoncelli%
+}{%
+{\protect \APACyear {2014}}%
+}]{%
+movshon_representation_2014}
+\APACinsertmetastar {%
+movshon_representation_2014}%
+\begin{APACrefauthors}%
+Movshon, J\BPBI A.%
+\BCBT {}\ \BBA {} Simoncelli, E\BPBI P.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2014}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Representation of {{Naturalistic Image Structure}} in
+  the {{Primate Visual Cortex}}} {Representation of {{Naturalistic Image
+  Structure}} in the {{Primate Visual Cortex}}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Cold Spring Harbor Symposia on Quantitative
+  Biology}{79}{}{115--122}.
+\newblock
+\begin{APACrefDOI} \doi{10.1101/sqb.2014.79.024844} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Okazawa%
+, Tajima%
+\BCBL {}\ \BBA {} Komatsu%
+}{%
+Okazawa%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2015}}%
+}]{%
+okazawa_image_2015}
+\APACinsertmetastar {%
+okazawa_image_2015}%
+\begin{APACrefauthors}%
+Okazawa, G.%
+, Tajima, S.%
+\BCBL {}\ \BBA {} Komatsu, H.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2015}{{\APACmonth{01}}}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Image Statistics Underlying Natural Texture Selectivity
+  of Neurons in Macaque {{V4}}} {Image statistics underlying natural texture
+  selectivity of neurons in macaque {{V4}}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Proceedings of the National Academy of
+  Sciences}{112}{4}{E351--E360}.
+\newblock
+\begin{APACrefDOI} \doi{10.1073/pnas.1415146112} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Pappas%
+}{%
+Pappas%
+}{%
+{\protect \APACyear {2013}}%
+}]{%
+pappas_rough_2013}
+\APACinsertmetastar {%
+pappas_rough_2013}%
+\begin{APACrefauthors}%
+Pappas, T\BPBI N.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2013}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {The Rough Side of Texture: Texture Analysis through the
+  Lens of {{HVEI}}} {The rough side of texture: Texture analysis through the
+  lens of {{HVEI}}}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {{{IS}}\&{{T}}/{{SPIE Electronic Imaging}}}
+  {{{IS}}\&{{T}}/{{SPIE Electronic Imaging}}}\ (\BPGS\ 86510P--86510P).
+\newblock
+\APACaddressPublisher{}{{International Society for Optics and Photonics}}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Pelli%
+}{%
+Pelli%
+}{%
+{\protect \APACyear {1997}}%
+}]{%
+pelli_videotoolbox_1997}
+\APACinsertmetastar {%
+pelli_videotoolbox_1997}%
+\begin{APACrefauthors}%
+Pelli, D\BPBI G.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1997}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {The {{VideoToolbox}} Software for Visual Psychophysics:
+  Transforming Numbers into Movies.} {The {{VideoToolbox}} software for visual
+  psychophysics: Transforming numbers into movies.}{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Spatial Vision}{10}{4}{437--442}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Porat%
+\ \BBA {} Zeevi%
+}{%
+Porat%
+\ \BBA {} Zeevi%
+}{%
+{\protect \APACyear {1989}}%
+}]{%
+porat_localized_1989}
+\APACinsertmetastar {%
+porat_localized_1989}%
+\begin{APACrefauthors}%
+Porat, M.%
+\BCBT {}\ \BBA {} Zeevi, Y.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1989}{{\APACmonth{01}}}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Localized Texture Processing in Vision: Analysis and
+  Synthesis in the {{Gaborian}} Space} {Localized texture processing in vision:
+  Analysis and synthesis in the {{Gaborian}} space}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{IEEE Transactions on Biomedical
+  Engineering}{36}{1}{115--129}.
+\newblock
+\begin{APACrefDOI} \doi{10.1109/10.16457} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Portilla%
+\ \BBA {} Simoncelli%
+}{%
+Portilla%
+\ \BBA {} Simoncelli%
+}{%
+{\protect \APACyear {2000}}%
+}]{%
+portilla_parametric_2000}
+\APACinsertmetastar {%
+portilla_parametric_2000}%
+\begin{APACrefauthors}%
+Portilla, J.%
+\BCBT {}\ \BBA {} Simoncelli, E\BPBI P.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2000}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {A Parametric Texture Model Based on Joint Statistics of
+  Complex Wavelet Coefficients} {A parametric texture model based on joint
+  statistics of complex wavelet coefficients}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{International Journal of Computer
+  Vision}{40}{1}{49--70}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+\{R Core Development Team\}%
+}{%
+\{R Core Development Team\}%
+}{%
+{\protect \APACyear {2016}}%
+}]{%
+r_core_development_team_r:_2016}
+\APACinsertmetastar {%
+r_core_development_team_r:_2016}%
+\begin{APACrefauthors}%
+\{R Core Development Team\}.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYear{2016}.
+\newblock
+\APACrefbtitle {R: {{A Language}} and {{Environment}} for {{Statistical
+  Computing}}} {R: {{A Language}} and {{Environment}} for {{Statistical
+  Computing}}}.
+\newblock
+\APACaddressPublisher{Vienna, Austria}{{R Foundation for Statistical
+  Computing}}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Rosenholtz%
+}{%
+Rosenholtz%
+}{%
+{\protect \APACyear {2011}}%
+}]{%
+rosenholtz_what_2011}
+\APACinsertmetastar {%
+rosenholtz_what_2011}%
+\begin{APACrefauthors}%
+Rosenholtz, R.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2011}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {What Your Visual System Sees Where You Are Not Looking}
+  {What your visual system sees where you are not looking}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{IS\&T/SPIE Electronic Imaging}{}{}{786510--786514}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Rosenholtz%
+}{%
+Rosenholtz%
+}{%
+{\protect \APACyear {2014}}%
+}]{%
+rosenholtz_texture_2014}
+\APACinsertmetastar {%
+rosenholtz_texture_2014}%
+\begin{APACrefauthors}%
+Rosenholtz, R.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2014}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Texture Perception} {Texture perception}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {Oxford {{Handbook}} of {{Perceptual Organization}}}
+  {Oxford {{Handbook}} of {{Perceptual Organization}}}\ (\BPGS\ 1--24).
+\newblock
+\APACaddressPublisher{}{{Oxford University Press}}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Rosenholtz%
+, Huang%
+\BCBL {}\ \BBA {} Ehinger%
+}{%
+Rosenholtz%
+, Huang%
+\BCBL {}\ \BBA {} Ehinger%
+}{%
+{\protect \APACyear {2012}}%
+}]{%
+rosenholtz_rethinking_2012}
+\APACinsertmetastar {%
+rosenholtz_rethinking_2012}%
+\begin{APACrefauthors}%
+Rosenholtz, R.%
+, Huang, J.%
+\BCBL {}\ \BBA {} Ehinger, K\BPBI A.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2012}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Rethinking the Role of Top-down Attention in Vision:
+  Effects Attributable to a Lossy Representation in Peripheral Vision.}
+  {Rethinking the role of top-down attention in vision: Effects attributable to
+  a lossy representation in peripheral vision.}{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Frontiers in Psychology}{3}{}{13}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Rosenholtz%
+, Huang%
+, Raj%
+, Balas%
+\BCBL {}\ \BBA {} Ilie%
+}{%
+Rosenholtz%
+, Huang%
+, Raj%
+\BCBL {}\ \protect \BOthers {.}}{%
+{\protect \APACyear {2012}}%
+}]{%
+rosenholtz_summary_2012}
+\APACinsertmetastar {%
+rosenholtz_summary_2012}%
+\begin{APACrefauthors}%
+Rosenholtz, R.%
+, Huang, J.%
+, Raj, A.%
+, Balas, B\BPBI J.%
+\BCBL {}\ \BBA {} Ilie, L.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2012}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {A Summary Statistic Representation in Peripheral Vision
+  Explains Visual Search.} {A summary statistic representation in peripheral
+  vision explains visual search.}{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Vision}{12}{4}{}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Russakovsky%
+\ \protect \BOthers {.}}{%
+Russakovsky%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2015}}%
+}]{%
+imagenet_2015}
+\APACinsertmetastar {%
+imagenet_2015}%
+\begin{APACrefauthors}%
+Russakovsky, O.%
+, Deng, J.%
+, Su, H.%
+, Krause, J.%
+, Satheesh, S.%
+, Ma, S.%
+\BDBL {}Fei-Fei, L.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2015}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{{ImageNet Large Scale Visual Recognition Challenge}}}
+  {{{ImageNet Large Scale Visual Recognition Challenge}}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{International Journal of Computer Vision
+  (IJCV)}{115}{3}{211--252}.
+\newblock
+\begin{APACrefDOI} \doi{10.1007/s11263-015-0816-y} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Safranek%
+\ \BBA {} Johnston%
+}{%
+Safranek%
+\ \BBA {} Johnston%
+}{%
+{\protect \APACyear {1989}}%
+}]{%
+safranek_perceptually_1989}
+\APACinsertmetastar {%
+safranek_perceptually_1989}%
+\begin{APACrefauthors}%
+Safranek, R\BPBI J.%
+\BCBT {}\ \BBA {} Johnston, J.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1989}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {A Perceptually Tuned Sub-Band Image Coder with Image
+  Dependent Quantization and Post-Quantization Data Compression} {A
+  perceptually tuned sub-band image coder with image dependent quantization and
+  post-quantization data compression}.{\BBCQ}
+\newblock
+\BIn{} (\BPGS\ 1945--1948).
+\newblock
+\APACaddressPublisher{}{{IEEE}}.
+\newblock
+\begin{APACrefDOI} \doi{10.1109/ICASSP.1989.266837} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Safranek%
+, Johnston%
+\BCBL {}\ \BBA {} Rosenholtz%
+}{%
+Safranek%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {1990}}%
+}]{%
+safranek_perceptually_1990}
+\APACinsertmetastar {%
+safranek_perceptually_1990}%
+\begin{APACrefauthors}%
+Safranek, R\BPBI J.%
+, Johnston, J\BPBI D.%
+\BCBL {}\ \BBA {} Rosenholtz, R\BPBI E.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1990}{{\APACmonth{10}}}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Perceptually Tuned Sub-Band Image Coder} {Perceptually
+  tuned sub-band image coder}.{\BBCQ}
+\newblock
+\BIn{} B\BPBI E.~Rogowitz\ \BBA {} J\BPBI P.~Allebach\ (\BEDS), (\BPGS\
+  284--293).
+\newblock
+\begin{APACrefDOI} \doi{10.1117/12.19678} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Simoncelli%
+\ \BBA {} Portilla%
+}{%
+Simoncelli%
+\ \BBA {} Portilla%
+}{%
+{\protect \APACyear {1998}}%
+}]{%
+simoncelli_texture_1998}
+\APACinsertmetastar {%
+simoncelli_texture_1998}%
+\begin{APACrefauthors}%
+Simoncelli, E.%
+\BCBT {}\ \BBA {} Portilla, J.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1998}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Texture Characterization via Joint Statistics of Wavelet
+  Coefficient Magnitudes} {Texture characterization via joint statistics of
+  wavelet coefficient magnitudes}.{\BBCQ}
+\newblock
+\BIn{} (\BVOL~1, \BPGS\ 62--66).
+\newblock
+\APACaddressPublisher{}{{IEEE Comput. Soc}}.
+\newblock
+\begin{APACrefDOI} \doi{10.1109/ICIP.1998.723417} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Simonyan%
+\ \BBA {} Zisserman%
+}{%
+Simonyan%
+\ \BBA {} Zisserman%
+}{%
+{\protect \APACyear {2015}}%
+}]{%
+simonyan_very_2015}
+\APACinsertmetastar {%
+simonyan_very_2015}%
+\begin{APACrefauthors}%
+Simonyan, K.%
+\BCBT {}\ \BBA {} Zisserman, A.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2015}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Very {{Deep Convolutional Networks}} for
+  {{Large}}-{{Scale Image Recognition}}} {Very {{Deep Convolutional Networks}}
+  for {{Large}}-{{Scale Image Recognition}}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{ICLR}{abs/1409.1556}{}{}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+{Stan Development Team}%
+}{%
+{Stan Development Team}%
+}{%
+{\protect \APACyear {2015}}%
+}]{%
+standevelopmentteam_stan_2015-1}
+\APACinsertmetastar {%
+standevelopmentteam_stan_2015-1}%
+\begin{APACrefauthors}%
+{Stan Development Team}.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYear{2015}.
+\newblock
+\APACrefbtitle {Stan {{Modeling Language Users Guide}} and {{Reference
+  Manual}}, {{Version}} 2.10.0} {Stan {{Modeling Language Users Guide}} and
+  {{Reference Manual}}, {{Version}} 2.10.0}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+{Stan Development Team}%
+}{%
+{Stan Development Team}%
+}{%
+{\protect \APACyear {2017}}%
+}]{%
+standevelopmentteam_stan_2015}
+\APACinsertmetastar {%
+standevelopmentteam_stan_2015}%
+\begin{APACrefauthors}%
+{Stan Development Team}.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2017}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Stan: {{A C}}++ {{Library}} for {{Probability}} and
+  {{Sampling}}, {{Version}} 2.14.0} {Stan: {{A C}}++ {{Library}} for
+  {{Probability}} and {{Sampling}}, {{Version}} 2.14.0}.{\BBCQ}
+\newblock
+
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Szegedy%
+\ \protect \BOthers {.}}{%
+Szegedy%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2013}}%
+}]{%
+szegedy_intriguing_2013}
+\APACinsertmetastar {%
+szegedy_intriguing_2013}%
+\begin{APACrefauthors}%
+Szegedy, C.%
+, Zaremba, W.%
+, Sutskever, I.%
+, Bruna, J.%
+, Erhan, D.%
+, Goodfellow, I.%
+\BCBL {}\ \BBA {} Fergus, R.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2013}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Intriguing Properties of Neural Networks} {Intriguing
+  properties of neural networks}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{arXiv preprint arXiv:1312.6199}{}{}{}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Thaler%
+, Sch{\"u}tz%
+, Goodale%
+\BCBL {}\ \BBA {} Gegenfurtner%
+}{%
+Thaler%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2013}}%
+}]{%
+thaler_what_2013}
+\APACinsertmetastar {%
+thaler_what_2013}%
+\begin{APACrefauthors}%
+Thaler, L.%
+, Sch{\"u}tz, A\BPBI C.%
+, Goodale, M\BPBI A.%
+\BCBL {}\ \BBA {} Gegenfurtner, K\BPBI R.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2013}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {What Is the Best Fixation Target? {{The}} Effect of
+  Target Shape on Stability of Fixational Eye Movements} {What is the best
+  fixation target? {{The}} effect of target shape on stability of fixational
+  eye movements}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Vision Research}{76}{}{31--42}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Ustyuzhaninov%
+, Brendel%
+, Gatys%
+\BCBL {}\ \BBA {} Bethge%
+}{%
+Ustyuzhaninov%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2016}}%
+}]{%
+ustyuzhaninov_texture_2016}
+\APACinsertmetastar {%
+ustyuzhaninov_texture_2016}%
+\begin{APACrefauthors}%
+Ustyuzhaninov, I.%
+, Brendel, W.%
+, Gatys, L\BPBI A.%
+\BCBL {}\ \BBA {} Bethge, M.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2016}{{\APACmonth{06}}}{}.
+\newblock
+\APACrefbtitle {Texture {{Synthesis Using Shallow Convolutional Networks}} with
+  {{Random Filters}}.} {Texture {{Synthesis Using Shallow Convolutional
+  Networks}} with {{Random Filters}}.}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+{van der Walt}%
+\ \protect \BOthers {.}}{%
+{van der Walt}%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2014}}%
+}]{%
+vanderwalt_scikitimage_2014}
+\APACinsertmetastar {%
+vanderwalt_scikitimage_2014}%
+\begin{APACrefauthors}%
+{van der Walt}, S.%
+, Sch{\"o}nberger, J\BPBI L.%
+, Nunez-Iglesias, J.%
+, Boulogne, F.%
+, Warner, J\BPBI D.%
+, Yager, N.%
+\BDBL {}{the scikit-image contributors}%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2014}{{\APACmonth{06}}}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Scikit-Image: Image Processing in {{Python}}}
+  {Scikit-image: Image processing in {{Python}}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{PeerJ}{2}{}{e453}.
+\newblock
+\begin{APACrefDOI} \doi{10.7717/peerj.453} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Vehtari%
+, Gelman%
+\BCBL {}\ \BBA {} Gabry%
+}{%
+Vehtari%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2016}}%
+}]{%
+vehtari_practical_2016}
+\APACinsertmetastar {%
+vehtari_practical_2016}%
+\begin{APACrefauthors}%
+Vehtari, A.%
+, Gelman, A.%
+\BCBL {}\ \BBA {} Gabry, J.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2016}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Practical {{Bayesian}} Model Evaluation Using
+  Leave-One-out Cross-Validation and {{WAIC}}${_\ast}$} {Practical {{Bayesian}}
+  model evaluation using leave-one-out cross-validation and
+  {{WAIC}}${_\ast}$}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{arXiv preprint arXiv:1507.04544}{}{}{}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Venables%
+\ \BBA {} Ripley%
+}{%
+Venables%
+\ \BBA {} Ripley%
+}{%
+{\protect \APACyear {2002}}%
+}]{%
+venables_modern_2002}
+\APACinsertmetastar {%
+venables_modern_2002}%
+\begin{APACrefauthors}%
+Venables, W\BPBI N.%
+\BCBT {}\ \BBA {} Ripley, B\BPBI D.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYear{2002}.
+\newblock
+\APACrefbtitle {Modern {{Applied Statistics}} with {{S}}} {Modern {{Applied
+  Statistics}} with {{S}}}\ (\PrintOrdinal{Fourth}\ \BEd).
+\newblock
+\APACaddressPublisher{New York}{{Springer}}.
+\newblock
+\APACrefnote{ISBN 0-387-95457-0}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Victor%
+, Thengone%
+\BCBL {}\ \BBA {} Conte%
+}{%
+Victor%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2013}}%
+}]{%
+victor_perception_2013}
+\APACinsertmetastar {%
+victor_perception_2013}%
+\begin{APACrefauthors}%
+Victor, J\BPBI D.%
+, Thengone, D\BPBI J.%
+\BCBL {}\ \BBA {} Conte, M\BPBI M.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2013}{{\APACmonth{03}}}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Perception of Second- and Third-Order Orientation
+  Signals and Their Interactions} {Perception of second- and third-order
+  orientation signals and their interactions}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Vision}{13}{4}{21}.
+\newblock
+\begin{APACrefDOI} \doi{10.1167/13.4.21} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Wallis%
+, Bethge%
+\BCBL {}\ \BBA {} Wichmann%
+}{%
+Wallis%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2016}}%
+}]{%
+wallis_testing_2016}
+\APACinsertmetastar {%
+wallis_testing_2016}%
+\begin{APACrefauthors}%
+Wallis, T\BPBI S\BPBI A.%
+, Bethge, M.%
+\BCBL {}\ \BBA {} Wichmann, F\BPBI A.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2016}{{\APACmonth{03}}}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Testing Models of Peripheral Encoding Using Metamerism
+  in an Oddity Paradigm} {Testing models of peripheral encoding using
+  metamerism in an oddity paradigm}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Vision}{16}{2}{4}.
+\newblock
+\begin{APACrefDOI} \doi{10.1167/16.2.4} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Wandell%
+}{%
+Wandell%
+}{%
+{\protect \APACyear {1995}}%
+}]{%
+wandell_foundations_1995}
+\APACinsertmetastar {%
+wandell_foundations_1995}%
+\begin{APACrefauthors}%
+Wandell, B\BPBI A.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYear{1995}.
+\newblock
+\APACrefbtitle {Foundations of Vision.} {Foundations of vision.}
+\newblock
+\APACaddressPublisher{}{{Sinauer Associates}}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Wickham%
+}{%
+Wickham%
+}{%
+{\protect \APACyear {2009}}%
+}]{%
+wickham_ggplot2_2009}
+\APACinsertmetastar {%
+wickham_ggplot2_2009}%
+\begin{APACrefauthors}%
+Wickham, H.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYear{2009}.
+\newblock
+\APACrefbtitle {Ggplot2: {{Elegant Graphics}} for {{Data Analysis}}} {Ggplot2:
+  {{Elegant Graphics}} for {{Data Analysis}}}.
+\newblock
+\APACaddressPublisher{New York}{{Springer}}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Wickham%
+}{%
+Wickham%
+}{%
+{\protect \APACyear {2011}}%
+}]{%
+wickham_splitapplycombine_2011}
+\APACinsertmetastar {%
+wickham_splitapplycombine_2011}%
+\begin{APACrefauthors}%
+Wickham, H.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2011}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {The {{Split}}-{{Apply}}-{{Combine Strategy}} for {{Data
+  Analysis}}} {The {{Split}}-{{Apply}}-{{Combine Strategy}} for {{Data
+  Analysis}}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Statistical Software}{40}{1}{1--29}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Wickham%
+\ \BBA {} Francois%
+}{%
+Wickham%
+\ \BBA {} Francois%
+}{%
+{\protect \APACyear {2016}}%
+}]{%
+wickham_dplyr:_2016}
+\APACinsertmetastar {%
+wickham_dplyr:_2016}%
+\begin{APACrefauthors}%
+Wickham, H.%
+\BCBT {}\ \BBA {} Francois, R.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYear{2016}.
+\newblock
+\APACrefbtitle {Dplyr: {{A Grammar}} of {{Data Manipulation}}} {Dplyr: {{A
+  Grammar}} of {{Data Manipulation}}}.
+\newblock
+\APACrefnote{R package version 0.5.0}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Xie%
+}{%
+Xie%
+}{%
+{\protect \APACyear {2013}}%
+}]{%
+xie_knitr_2013}
+\APACinsertmetastar {%
+xie_knitr_2013}%
+\begin{APACrefauthors}%
+Xie, Y.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2013}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Knitr: {{A}} Comprehensive Tool for Reproducible
+  Research in {{R}}. {{BT}} - {{Implementing Reproducible Computational
+  Research}}} {Knitr: {{A}} comprehensive tool for reproducible research in
+  {{R}}. {{BT}} - {{Implementing Reproducible Computational Research}}}.{\BBCQ}
+\newblock
+\BIn{} V.~Stodden, F.~Leisch\BCBL {}\ \BBA {} R\BPBI D.~Peng\ (\BEDS),
+  \APACrefbtitle {Implementing {{Reproducible Computational Research}}.}
+  {Implementing {{Reproducible Computational Research}}.}
+\newblock
+\APACaddressPublisher{}{{Chapman \& Hall/CRC}}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Xie%
+}{%
+Xie%
+}{%
+{\protect \APACyear {2015}}%
+}]{%
+xie_dynamic_2015}
+\APACinsertmetastar {%
+xie_dynamic_2015}%
+\begin{APACrefauthors}%
+Xie, Y.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYear{2015}.
+\newblock
+\APACrefbtitle {Dynamic {{Documents}} with {{R}} and {{Knitr}}, {{Second
+  Edition}}} {Dynamic {{Documents}} with {{R}} and {{Knitr}}, {{Second
+  Edition}}}\ (\PrintOrdinal{2nd}\ \BEd).
+\newblock
+\APACaddressPublisher{}{{Chapman \& Hall/CRC}}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Yamins%
+\ \BBA {} DiCarlo%
+}{%
+Yamins%
+\ \BBA {} DiCarlo%
+}{%
+{\protect \APACyear {2016}}%
+}]{%
+yamins_using_2016}
+\APACinsertmetastar {%
+yamins_using_2016}%
+\begin{APACrefauthors}%
+Yamins, D\BPBI L\BPBI K.%
+\BCBT {}\ \BBA {} DiCarlo, J\BPBI J.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2016}{{\APACmonth{02}}}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Using Goal-Driven Deep Learning Models to Understand
+  Sensory Cortex} {Using goal-driven deep learning models to understand sensory
+  cortex}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Nature Neuroscience}{19}{3}{356--365}.
+\newblock
+\begin{APACrefDOI} \doi{10.1038/nn.4244} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Yamins%
+, Hong%
+, Cadieu%
+\BCBL {}\ \BBA {} DiCarlo%
+}{%
+Yamins%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2013}}%
+}]{%
+yamins_hierarchical_2013}
+\APACinsertmetastar {%
+yamins_hierarchical_2013}%
+\begin{APACrefauthors}%
+Yamins, D\BPBI L\BPBI K.%
+, Hong, H.%
+, Cadieu, C.%
+\BCBL {}\ \BBA {} DiCarlo, J\BPBI J.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2013}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Hierarchical {{Modular Optimization}} of {{Convolutional
+  Networks Achieves Representations Similar}} to {{Macaque IT}} and {{Human
+  Ventral Stream}}} {Hierarchical {{Modular Optimization}} of {{Convolutional
+  Networks Achieves Representations Similar}} to {{Macaque IT}} and {{Human
+  Ventral Stream}}}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {Advances in {{Neural Information Processing Systems}}.}
+  {Advances in {{Neural Information Processing Systems}}.}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Yamins%
+\ \protect \BOthers {.}}{%
+Yamins%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2014}}%
+}]{%
+yamins_performanceoptimized_2014}
+\APACinsertmetastar {%
+yamins_performanceoptimized_2014}%
+\begin{APACrefauthors}%
+Yamins, D\BPBI L\BPBI K.%
+, Hong, H.%
+, Cadieu, C\BPBI F.%
+, Solomon, E\BPBI A.%
+, Seibert, D.%
+\BCBL {}\ \BBA {} DiCarlo, J\BPBI J.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2014}{{\APACmonth{06}}}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Performance-Optimized Hierarchical Models Predict Neural
+  Responses in Higher Visual Cortex} {Performance-optimized hierarchical models
+  predict neural responses in higher visual cortex}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Proceedings of the National Academy of
+  Sciences}{111}{23}{8619--8624}.
+\newblock
+\begin{APACrefDOI} \doi{10.1073/pnas.1403112111} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Zhu%
+, Wu%
+\BCBL {}\ \BBA {} Mumford%
+}{%
+Zhu%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {1998}}%
+}]{%
+zhu_filters_1998}
+\APACinsertmetastar {%
+zhu_filters_1998}%
+\begin{APACrefauthors}%
+Zhu, S\BPBI C.%
+, Wu, Y.%
+\BCBL {}\ \BBA {} Mumford, D.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1998}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Filters, Random Fields and Maximum Entropy ({{FRAME}}):
+  {{Towards}} a Unified Theory for Texture Modeling} {Filters, random fields
+  and maximum entropy ({{FRAME}}): {{Towards}} a unified theory for texture
+  modeling}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{International Journal of Computer
+  Vision}{27}{2}{107--126}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Ziemba%
+, Freeman%
+, Movshon%
+\BCBL {}\ \BBA {} Simoncelli%
+}{%
+Ziemba%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2016}}%
+}]{%
+ziemba_selectivity_2016}
+\APACinsertmetastar {%
+ziemba_selectivity_2016}%
+\begin{APACrefauthors}%
+Ziemba, C\BPBI M.%
+, Freeman, J.%
+, Movshon, J\BPBI A.%
+\BCBL {}\ \BBA {} Simoncelli, E\BPBI P.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2016}{{\APACmonth{05}}}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Selectivity and Tolerance for Visual Texture in Macaque
+  {{V2}}} {Selectivity and tolerance for visual texture in macaque
+  {{V2}}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Proceedings of the National Academy of
+  Sciences}{113}{22}{E3140--E3149}.
+\newblock
+\begin{APACrefDOI} \doi{10.1073/pnas.1510847113} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\end{thebibliography}
