@@ -785,11 +785,9 @@ One caveat is that credible intervals in general, unlike confidence intervals, a
 Given that some decisions about our analyses were made after seeing the data (making this \textit{exploratory} research), frequentist p-values would not have their nominal false-alarm rates in any case.
 For these reasons we report a Bayesian analysis here; readers wishing to apply other analyses are encouraged to do so using the raw data provided online.
 
-Where it makes sense to compare discrete models, we do so using an approximation to the out-of-sample (leave-one-out) prediction error provided by the R package \texttt{loo} \citep[v 0.1.6;][]{vehtari_practical_2016}.
-% Where it makes sense to compare discrete models, we do so using an approximation to the out-of-sample (leave-one-out) prediction error \citep[the WAIC;][see also \citet{gelman_understanding_2014, vehtari_practical_2016, mcelreath_statistical_2016}]{watanabe_asymptotic_2010}.
+Where it makes sense to compare discrete models, we do so using an approximation to the out-of-sample (leave-one-out) prediction error provided by the R package \texttt{loo} \citep[v 1.1.0;][]{vehtari_practical_2016}.
 Loosely, this value estimates the ability of the model to predict new data (smaller values are better).
 We report differences between models and their standard errors on the deviance scale ($-2 \times$ the expected log pointwise predictive density estimated by the \texttt{loo} package, called LOOIC).
-%If we assume that the heuristics suggested by \citet[][, p. 70]{burnham_model_2002} for AIC are also appropriate for the LOOIC, then differences larger than 10 can be interpreted as ``essentially no'' support for the model with higher LOOIC.
 
 \subsubsection{Experiment 1}
 
